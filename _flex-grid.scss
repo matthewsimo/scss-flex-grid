@@ -1,0 +1,134 @@
+
+/**
+ * 12 Column Flex Grid
+ * 
+ * Simple 12 column grid built with flex box and sass.
+ *
+ * Matthew Simo - matthew.a.simo@gmail.com
+ */
+
+
+/**
+ * Column Maths
+ */
+
+$half-gutter: 0.5rem;
+$half-gutter-adjustment: -$half-gutter;
+
+/**
+ * Function for fetching column percentage.
+ *
+ * Really wish Sass had a notion of a switch statement, this will have to do for now...
+ */
+@function get-col-percent($num-of-columns) {
+	@if $num-of-columns == 1 {
+		@return 8.333333333%;
+	} @else if $num-of-columns == 2 {
+		@return 16.666666667%;
+	} @else if $num-of-columns == 3 {
+		@return 25%;
+	} @else if $num-of-columns == 4 {
+		@return 33.333333333%;
+	} @else if $num-of-columns == 5 {
+		@return 41.666666667%;
+	} @else if $num-of-columns == 6 {
+		@return 50%;
+	} @else if $num-of-columns == 7 {
+		@return 58.333333333%;
+	} @else if $num-of-columns == 8 {
+		@return 66.666666667%;
+	} @else if $num-of-columns == 9 {
+		@return 75%;
+	} @else if $num-of-columns == 10 {
+		@return 83.333333333%;
+	} @else if $num-of-columns == 11 {
+		@return 91.666666667%;
+	} @else if $num-of-columns == 12 {
+		@return 100%;
+	} @else {
+		@return 8.333333333%;
+	}
+}
+
+
+/**
+ * Row wrapper class, flex box parent.
+ */
+.row {
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	margin-right: $half-gutter-adjustment;
+	margin-left: $half-gutter-adjustment;
+}
+
+
+@mixin col {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 0;
+  flex-shrink: 0;
+  padding-right: $half-gutter;
+  padding-left: $half-gutter;
+}
+
+@mixin col-flex {
+	@include col;
+  flex-grow: 1;
+  flex-basis: 0;
+  max-width: 100%;
+}
+
+
+/**
+ * Generate a set of grid column classes using a namespace
+ *
+ * .col-[namespace] for intelligent column division
+ * .col-[namespace]-[number] for a column that covers a specific number of columns (1-12)
+ * .off-[namespace]-[number] for pushing a col a specific number of columns (1-11)
+ */
+@mixin grid($namespace) {
+
+	.col-#{$namespace} {
+		@include col-flex;
+	}
+
+	@for $i from 1 through 12 {
+		.col-#{$namespace}-#{$i} {
+			@include col;
+			flex-basis: get-col-percent($i);
+			max-width:  get-col-percent($i);
+		}
+	}
+
+	@for $i from 1 through 11 {
+		.off-#{$namespace}-#{$i} {
+			margin-left: get-col-percent($i);
+		}
+	}
+
+}
+
+
+/**
+ * Generate the actual grid for each namespace - mobile first appraoch.
+ *
+ * xs
+ * sm
+ * md
+ * lg
+ */
+
+@include grid('xs');
+
+@each $size, $namespace in (48em, sm),
+													 (62em, md),
+													 (75em, lg) {
+
+	@media only screen and (min-width: #{$size}) {
+		@include grid($namespace);
+	}
+
+}
