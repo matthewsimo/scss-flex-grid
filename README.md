@@ -21,10 +21,10 @@ Use the generated classes to build your layout. I prefer to keep my markup clean
 
 ### Reference:
 
--`.row`: Flex box container, use this to wrap columns.
--`.col-(namespace)`: This creates a column that will grow/shrink depending on available space in the defined namespace.
--`.col-(namespace)-(number)`: This creates a column that span the specific number of columns in the defined namespace. Valid numbers are 1-12.
--`.off-(namespace)-(number)`: This will offset a column by a specific number of columns in the defined namespace. Valid numbers are 1-11.
+- `.row`: Flex box container, use this to wrap columns.
+- `.col-(namespace)`: This creates a column that will grow/shrink depending on available space in the defined namespace.
+- `.col-(namespace)-(number)`: This creates a column that span the specific number of columns in the defined namespace. Valid numbers are 1-12.
+- `.off-(namespace)-(number)`: This will offset a column by a specific number of columns in the defined namespace. Valid numbers are 1-11.
 
 Valid namespaces are `xs`, `sm`, `md`, `lg`. The `xs` namespace is default and uses no media queries.
 
