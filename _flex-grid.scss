@@ -123,9 +123,12 @@ $half-gutter-adjustment: -$half-gutter;
 
 @include grid('xs');
 
-@each $size, $namespace in (48em, sm),
-													 (62em, md),
-													 (75em, lg) {
+$size-namespace-obj: (48em, sm), (62em, md), (75em, lg);
+
+@each $val in $size-namespace-obj {
+
+	$size: nth($val, 1);
+	$namespace: nth($val, 2);
 
 	@media only screen and (min-width: #{$size}) {
 		@include grid($namespace);
