@@ -31,9 +31,11 @@ Valid namespaces are `xs`, `sm`, `md`, `lg`. The `xs` namespace is default and u
 ### Coming Up:
 
 - Plan on doing a proper demo. Stay tuned.
+- I want to abstract out the namespaces into proper variables so that people can easily create whatever breakpoints they might need.
 
 ### Notes:
 
 - Heavy use of sometimes not often used Sass @ directives, be sure and consult the [Sass docs](http://sass-lang.com/documentation/file.SASS_REFERENCE.html) if something looks foreign.
 - This is for personal use, if you like and want to use it, great! But I want to keep it simple so if you have an idea feel free to add an issue but don't be upset if I don't accept a pull request. :heart: (That's what forks are for!)
+- This doesn't account for any browser prefix, be sure and use auto prefixer.
 
