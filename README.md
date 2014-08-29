@@ -30,7 +30,7 @@ Valid namespaces are `xs`, `sm`, `md`, `lg`. The `xs` namespace is default and u
 
 ### Coming Up:
 
-- ~~ Plan on doing a proper demo. Stay tuned. ~~ [Demo here](http://matthewsimo.github.io/scss-flex-grid/)
+- ~~Plan on doing a proper demo. Stay tuned.~~ [Demo here](http://matthewsimo.github.io/scss-flex-grid/)
 - ~~I want to abstract out the namespaces into proper variables so that people can easily create whatever breakpoints they might need.~~ Namespace overriding possibel now, huzzah!
 - Dunno, considering ideas.
 
