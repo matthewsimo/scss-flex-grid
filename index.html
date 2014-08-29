@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Flex Grid SCSS</title>
+	<meta charset="utf-8" />
+	<link rel="stylesheet" href="./css/main.css" type="text/css" media="screen" charset="utf-8">	
+</head>
+<body>
+
+
+<div id="wrapper">
+
+	<div id="sidebar" class="col-xs-12 col-sm-3">
+		<h4>By <a href="http://matthewsimo.com">Matthew Simo</a></h4>
+		<h5><a href="http://github.com/matthewsimo/scss-flex-grid">Project on GitHub</a></h5>
+		<small><a href="https://twitter.com/matthewsimo">@matthewsimo</a></small>
+		<small><a href="https://github.com/matthewsimo/scss-flex-grid/issues">Find a bug?</a></small>
+		<small><a href="https://github.com/matthewsimo/scss-flex-grid/archive/master.zip">Download</a></small>
+	</div>
+
+	<div id="main" class="col-xs-12 col-sm-9">
+		<h1>Flex Grid SCSS</h1>
+
+		<p>Super simple, straight forward 12 column grid implementation using flex box & scss. Drag browser around to text responsive breakpoints.</p>
+
+		<hr>
+		
+		<div class="row">
+			<div class="col-xs-12">
+				<h2>Usage</h2>
+				<p>Just <code>@import</code> the <code>_flexgrid.scss</code> file as a partial or rename (<code>_flexgrid.scss</code> -> <code>flexgrid.scss</code>) if you'd prefer it to be compiled independently. <a href="https://github.com/matthewsimo/scss-flex-grid/archive/master.zip">Download flex grid</a></p>
+				<p>Use the generated classes to build your layout. I prefer to keep my markup clean and <code>@extend</code> the grid classes onto my elements so I don't have to muck around in html for style edits but whatever floats your boat.</p>
+			</div>
+		</div>
+
+		<hr>
+
+		<div class="row">
+
+			<div class="col-xs-12">
+				<h2>Class Reference</h2>
+				<ul>
+					<li><code>.row</code>: Flex box container, use this to wrap columns.</li>
+					<li><code>.col-(namespace)</code>: This creates a column that will grow/shrink depending on available space in the defined namespace.</li>
+					<li><code>.col-(namespace)-(number)</code>: This creates a column that span the specific number of columns in the defined namespace. Valid numbers are 1-12.</li>
+					<li><code>.off-(namespace)-(number)</code>: This will offset a column by a specific number of columns in the defined namespace. Valid numbers are 1-11.</li>
+				</ul>
+				<p>Default valid namespaces are <code>xs</code>, <code>sm</code>, <code>md</code>, <code>lg</code>. The <code>xs</code> namespace is default and uses no media queries. Learn how to <a href="#overriding-namespaces">override namespaces</a>.</p>
+			</div>
+		</div>
+
+		<hr>
+		
+		<div class="row">
+
+			<div class="col-xs-12">
+				<h2>Columns Demo</h2>
+			</div>
+
+			<div class="col-xs-12">
+				<div class="item"></div>
+			</div>
+
+			<div class="col-xs-1">
+				<div class="item"></div>
+			</div>
+			<div class="col-xs-11">
+				<div class="item"></div>
+			</div>
+
+			<div class="col-xs-2">
+				<div class="item"></div>
+			</div>
+			<div class="col-xs-10">
+				<div class="item"></div>
+			</div>
+
+			<div class="col-xs-3">
+				<div class="item"></div>
+			</div>
+			<div class="col-xs-9">
+				<div class="item"></div>
+			</div>
+
+			<div class="col-xs-4">
+				<div class="item"></div>
+			</div>
+			<div class="col-xs-8">
+				<div class="item"></div>
+			</div>
+
+			<div class="col-xs-5">
+				<div class="item"></div>
+			</div>
+			<div class="col-xs-7">
+				<div class="item"></div>
+			</div>
+
+			<div class="col-xs-6">
+				<div class="item"></div>
+			</div>
+			<div class="col-xs-6">
+				<div class="item"></div>
+			</div>
+
+			<div class="col-xs-7">
+				<div class="item"></div>
+			</div>
+			<div class="col-xs-5">
+				<div class="item"></div>
+			</div>
+
+			<div class="col-xs-8">
+				<div class="item"></div>
+			</div>
+			<div class="col-xs-4">
+				<div class="item"></div>
+			</div>
+
+			<div class="col-xs-9">
+				<div class="item"></div>
+			</div>
+			<div class="col-xs-3">
+				<div class="item"></div>
+			</div>
+
+			<div class="col-xs-10">
+				<div class="item"></div>
+			</div>
+			<div class="col-xs-2">
+				<div class="item"></div>
+			</div>
+
+			<div class="col-xs-11">
+				<div class="item"></div>
+			</div>
+			<div class="col-xs-1">
+				<div class="item"></div>
+			</div>
+
+			<div class="col-xs-12">
+				<div class="item"></div>
+			</div>
+
+		</div>
+
+		<hr>
+
+		<div class="row">
+			<div class="col-xs-12">
+				<h2>Column Offsets Demo</h2>
+			</div>
+
+			<div class="col-xs-12">
+				<div class="item"></div>
+			</div>
+
+			<div class="col-xs-11 off-xs-1">
+				<div class="item"></div>
+			</div>
+
+			<div class="col-xs-10 off-xs-2">
+				<div class="item"></div>
+			</div>
+
+			<div class="col-xs-9 off-xs-3">
+				<div class="item"></div>
+			</div>
+
+			<div class="col-xs-8 off-xs-4">
+				<div class="item"></div>
+			</div>
+
+			<div class="col-xs-7 off-xs-5">
+				<div class="item"></div>
+			</div>
+
+			<div class="col-xs-6 off-xs-6">
+				<div class="item"></div>
+			</div>
+
+			<div class="col-xs-5 off-xs-7">
+				<div class="item"></div>
+			</div>
+
+			<div class="col-xs-4 off-xs-8">
+				<div class="item"></div>
+			</div>
+
+			<div class="col-xs-3 off-xs-9">
+				<div class="item"></div>
+			</div>
+
+			<div class="col-xs-2 off-xs-10">
+				<div class="item"></div>
+			</div>
+
+			<div class="col-xs-1 off-xs-11">
+				<div class="item"></div>
+			</div>
+
+		</div>
+
+		<hr>
+
+
+		<div class="row">
+
+			<div class="col-xs-12">
+				<h2>Responsitivity By Combining Namespaces Demo</h2>
+			</div>
+
+			<div class="col-xs-6 col-sm-4 col-md-3 col-lg-1">
+				<div class="item"></div>
+			</div>
+			<div class="col-xs-6 col-sm-4 col-md-3 col-lg-1">
+				<div class="item"></div>
+			</div>
+			<div class="col-xs-6 col-sm-4 col-md-3 col-lg-1">
+				<div class="item"></div>
+			</div>
+			<div class="col-xs-6 col-sm-4 col-md-3 col-lg-1">
+				<div class="item"></div>
+			</div>
+			<div class="col-xs-6 col-sm-4 col-md-3 col-lg-1">
+				<div class="item"></div>
+			</div>
+			<div class="col-xs-6 col-sm-4 col-md-3 col-lg-1">
+				<div class="item"></div>
+			</div>
+			<div class="col-xs-6 col-sm-4 col-md-3 col-lg-1">
+				<div class="item"></div>
+			</div>
+			<div class="col-xs-6 col-sm-4 col-md-3 col-lg-1">
+				<div class="item"></div>
+			</div>
+			<div class="col-xs-6 col-sm-4 col-md-3 col-lg-1">
+				<div class="item"></div>
+			</div>
+			<div class="col-xs-6 col-sm-4 col-md-3 col-lg-1">
+				<div class="item"></div>
+			</div>
+			<div class="col-xs-6 col-sm-4 col-md-3 col-lg-1">
+				<div class="item"></div>
+			</div>
+			<div class="col-xs-6 col-sm-4 col-md-3 col-lg-1">
+				<div class="item"></div>
+			</div>
+			<div class="col-xs-6 col-sm-4 col-md-3 col-lg-1">
+				<div class="item"></div>
+			</div>
+			<div class="col-xs-6 col-sm-4 col-md-3 col-lg-1">
+				<div class="item"></div>
+			</div>
+			<div class="col-xs-6 col-sm-4 col-md-3 col-lg-1">
+				<div class="item"></div>
+			</div>
+			<div class="col-xs-6 col-sm-4 col-md-3 col-lg-1">
+				<div class="item"></div>
+			</div>
+			<div class="col-xs-6 col-sm-4 col-md-3 col-lg-1">
+				<div class="item"></div>
+			</div>
+			<div class="col-xs-6 col-sm-4 col-md-3 col-lg-1">
+				<div class="item"></div>
+			</div>
+			<div class="col-xs-6 col-sm-4 col-md-3 col-lg-1">
+				<div class="item"></div>
+			</div>
+			<div class="col-xs-6 col-sm-4 col-md-3 col-lg-1">
+				<div class="item"></div>
+			</div>
+			<div class="col-xs-6 col-sm-4 col-md-3 col-lg-1">
+				<div class="item"></div>
+			</div>
+			<div class="col-xs-6 col-sm-4 col-md-3 col-lg-1">
+				<div class="item"></div>
+			</div>
+			<div class="col-xs-6 col-sm-4 col-md-3 col-lg-1">
+				<div class="item"></div>
+			</div>
+			<div class="col-xs-6 col-sm-4 col-md-3 col-lg-1">
+				<div class="item"></div>
+			</div>
+			<div class="col-xs-6 col-sm-4 col-md-3 col-lg-1">
+				<div class="item"></div>
+			</div>
+			<div class="col-xs-6 col-sm-4 col-md-3 col-lg-1">
+				<div class="item"></div>
+			</div>
+			<div class="col-xs-6 col-sm-4 col-md-3 col-lg-1">
+				<div class="item"></div>
+			</div>
+			<div class="col-xs-6 col-sm-4 col-md-3 col-lg-1">
+				<div class="item"></div>
+			</div>
+			<div class="col-xs-6 col-sm-4 col-md-3 col-lg-1">
+				<div class="item"></div>
+			</div>
+			<div class="col-xs-6 col-sm-4 col-md-3 col-lg-1">
+				<div class="item"></div>
+			</div>
+			<div class="col-xs-6 col-sm-4 col-md-3 col-lg-1">
+				<div class="item"></div>
+			</div>
+			<div class="col-xs-6 col-sm-4 col-md-3 col-lg-1">
+				<div class="item"></div>
+			</div>
+			<div class="col-xs-6 col-sm-4 col-md-3 col-lg-1">
+				<div class="item"></div>
+			</div>
+			<div class="col-xs-6 col-sm-4 col-md-3 col-lg-1">
+				<div class="item"></div>
+			</div>
+			<div class="col-xs-6 col-sm-4 col-md-3 col-lg-1">
+				<div class="item"></div>
+			</div>
+			<div class="col-xs-6 col-sm-4 col-md-3 col-lg-1">
+				<div class="item"></div>
+			</div>
+		</div>
+
+		<hr>
+
+		<div class="row">
+			<div class="col-xs-12">
+				<h2 id="overriding-namespaces">Overriding Namespaces</h2>
+
+				<p>Flex grid declares a variable <code>$bp-namespace-obj</code>. This variable defines the breakpoints that you'd like to set and their associated namespaces.</p>
+				<p>To declare your own breakpoints just override this variable. By default we set it to: <code>$bp-namespace-obj: ( (xs), (sm, 32em), (md, 48em), (lg, 62em) );</code></p>
+				<p>You can add your own namespaces and breakpoints, we'll handle creating your grid. Flex grid is built from a mobile first approach, meaning you should always keep your base namespace first, this will ensure that the others cascade over it correctly.</p>
+			</div>
+
+		</div>
+
+		<hr>
+
+		<div class="row">
+			<div class="col-xs-12">
+				<h2 id="questions">Questions</h2>
+
+				<p>If you have questions or bug reports don't hesitate to get in touch. You can always <a href="https://github.com/matthewsimo/scss-flex-grid/issues">make an issue</a> on the github repo, or reach out on <a href="https://twitter.com/matthewsimo">twitter</a>.</p>
+			</div>
+
+		</div>
+
+
+
+	</div>
+
+</div>
+
+
+</body>
+</html>
