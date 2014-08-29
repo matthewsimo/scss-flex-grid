@@ -7,6 +7,24 @@
  * Matthew Simo - matthew.a.simo@gmail.com
  */
 
+/**
+ * Break point namespace object
+ *
+ * Set the default namespace object with these defaults with the 
+ * understanding that you can pass in whatever you might require for your site.
+ *
+ * $bp-namespace-obj is a Sass list with nested lists inside. Each sub list defines two things. 
+ * 1. The namespace for that breakpoint. (Required) (i.e. xs, sm, md, lg)
+ * 2. The min-width measurement for the breakpoint for that namespace. (i.e. 48em, 62em, 75em)
+ *
+ * Note: These should be in the proper order (at least till libsass handles map keys properly).
+ * 
+ * Note: If the measurement is left out then it will be skipped when generating 
+ * the grid and applied to global styles.
+ *
+ */
+$bp-namespace-obj: ( (xs), (sm, 48em), (md, 62em), (lg, 75em) ) !default;
+
 
 /**
  * Column Maths
@@ -16,38 +34,24 @@ $half-gutter: 0.5rem;
 $half-gutter-adjustment: -$half-gutter;
 
 /**
- * Function for fetching column percentage.
+ * Function for fetching column percentage because I don't trust browser rounding.
  *
- * Really wish Sass had a notion of a switch statement, this will have to do for now...
+ * Really wish Sass had a notion of a switch statement, but this will have to do for now...
  */
-@function get-col-percent($num-of-columns) {
-	@if $num-of-columns == 1 {
-		@return 8.333333333%;
-	} @else if $num-of-columns == 2 {
-		@return 16.666666667%;
-	} @else if $num-of-columns == 3 {
-		@return 25%;
-	} @else if $num-of-columns == 4 {
-		@return 33.333333333%;
-	} @else if $num-of-columns == 5 {
-		@return 41.666666667%;
-	} @else if $num-of-columns == 6 {
-		@return 50%;
-	} @else if $num-of-columns == 7 {
-		@return 58.333333333%;
-	} @else if $num-of-columns == 8 {
-		@return 66.666666667%;
-	} @else if $num-of-columns == 9 {
-		@return 75%;
-	} @else if $num-of-columns == 10 {
-		@return 83.333333333%;
-	} @else if $num-of-columns == 11 {
-		@return 91.666666667%;
-	} @else if $num-of-columns == 12 {
-		@return 100%;
-	} @else {
-		@return 8.333333333%;
-	}
+@function get-col-percent($column-num) {
+			 @if $column-num == 1  { @return  8.333333333%; }
+	@else if $column-num == 2  { @return 16.666666667%; } 
+	@else if $column-num == 3  { @return 25%; } 
+	@else if $column-num == 4  { @return 33.333333333%;	} 
+	@else if $column-num == 5  { @return 41.666666667%;	} 
+	@else if $column-num == 6  { @return 50%;	} 
+	@else if $column-num == 7  { @return 58.333333333%;	} 
+	@else if $column-num == 8  { @return 66.666666667%;	} 
+	@else if $column-num == 9  { @return 75%;	} 
+	@else if $column-num == 10 { @return 83.333333333%;	} 
+	@else if $column-num == 11 { @return 91.666666667%;	} 
+	@else if $column-num == 12 { @return 100%;	} 
+	@else { @return 8.333333333%;	}
 }
 
 
@@ -113,25 +117,24 @@ $half-gutter-adjustment: -$half-gutter;
 
 
 /**
- * Generate the actual grid for each namespace - mobile first appraoch.
- *
- * xs
- * sm
- * md
- * lg
+ * Generate the actual grid for each namespace in the $bp-namespace-obj.
  */
+@each $val in $bp-namespace-obj {
 
-@include grid('xs');
+	@if length($val) == 1 {
 
-$size-namespace-obj: (48em, sm), (62em, md), (75em, lg);
-
-@each $val in $size-namespace-obj {
-
-	$size: nth($val, 1);
-	$namespace: nth($val, 2);
-
-	@media only screen and (min-width: #{$size}) {
+		$namespace: nth($val, 1);
 		@include grid($namespace);
+
+	} @else {
+
+		$namespace: nth($val, 1);
+		$size: nth($val, 2);
+
+		@media only screen and (min-width: #{$size}) {
+			@include grid($namespace);
+		}
+
 	}
 
 }
