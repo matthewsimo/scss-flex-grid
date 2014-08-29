@@ -4,7 +4,7 @@ scss-flex-grid
 12 column grid using flex box &amp; scss
 
 
-Super simple, straight forward 12 column grid implementation.
+Super simple, straight forward 12 column grid implementation. Check out the [demo](http://matthewsimo.github.io/scss-flex-grid/).
 
 
 ### Features:
@@ -30,12 +30,13 @@ Valid namespaces are `xs`, `sm`, `md`, `lg`. The `xs` namespace is default and u
 
 ### Coming Up:
 
-- Plan on doing a proper demo. Stay tuned.
-- I want to abstract out the namespaces into proper variables so that people can easily create whatever breakpoints they might need.
+- ~~ Plan on doing a proper demo. Stay tuned. ~~ [Demo here](http://matthewsimo.github.io/scss-flex-grid/)
+- ~~I want to abstract out the namespaces into proper variables so that people can easily create whatever breakpoints they might need.~~ Namespace overriding possibel now, huzzah!
+- Dunno, considering ideas.
 
 ### Notes:
 
 - Heavy use of sometimes not often used Sass @ directives, be sure and consult the [Sass docs](http://sass-lang.com/documentation/file.SASS_REFERENCE.html) if something looks foreign.
 - This is for personal use, if you like and want to use it, great! But I want to keep it simple so if you have an idea feel free to add an issue but don't be upset if I don't accept a pull request. :heart: (That's what forks are for!)
-- This doesn't account for any browser prefix, be sure and use auto prefixer.
+- This doesn't account for any browser prefixes, be sure and use [Autoprefixer](https://github.com/postcss/autoprefixer).
 
