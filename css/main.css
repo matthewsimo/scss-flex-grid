@@ -799,7 +799,8 @@ hr {
   background-color: CornflowerBlue;
   width: 100%;
   display: block;
-  margin-bottom: 1rem; }
+  margin-bottom: 1rem;
+  border-radius: 2px; }
 
 #wrapper {
   max-width: 80%;
