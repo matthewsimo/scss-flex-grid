@@ -49,7 +49,7 @@ $half-gutter-adjustment: -$half-gutter;
  */
 @function get-col-percent($column-num) {
 	
-	$column-width: $column-num / $number-of-columns * 1%;
+	$column-width: $column-num / $number-of-columns * 100%;
 	
 	@return $column-width;
 }
