@@ -26,7 +26,7 @@
 
 // Grid setup
 $number-of-columns:			12;
-$gutter:								18px;
+$gutter-width:					18px;
 
 // Map screen sizes
 $bp-namespace-obj: (
@@ -55,7 +55,6 @@ $half-gutter-adjustment: -$half-gutter;
 }
 
 // Useful mixins
-
 @mixin horizontal-padding($value) {
 	padding-left: $value;
 	padding-right: $value;
@@ -105,6 +104,14 @@ $half-gutter-adjustment: -$half-gutter;
   max-width: 100%;
 }
 
+/**
+ * Added extra class to avoid repetition
+ * and save file size
+ */
+
+.col {
+	@include col;
+}
 
 /**
  * Generate a set of grid column classes using a namespace
@@ -113,6 +120,7 @@ $half-gutter-adjustment: -$half-gutter;
  * .col-[namespace]-[number] for a column that covers a specific number of columns (1-12)
  * .off-[namespace]-[number] for pushing a col a specific number of columns (1-11)
  */
+
 @mixin grid($namespace) {
 
 	.col-#{$namespace} {
@@ -122,7 +130,8 @@ $half-gutter-adjustment: -$half-gutter;
 	// Run the loop for as many columns as speficied
 	@for $i from 1 through $number-of-columns {
 		.col-#{$namespace}-#{$i} {
-			@include col;
+			// used .col class instead of including the styles in each column
+			//@include col;
 			flex-basis: get-col-percent($i);
 			max-width:  get-col-percent($i);
 		}
