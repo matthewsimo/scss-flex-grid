@@ -23,7 +23,18 @@
  * the grid and applied to global styles.
  *
  */
-$bp-namespace-obj: ( (xs), (sm, 48em), (md, 62em), (lg, 75em) ) !default;
+
+// Grid setup
+$number-of-columns:			12;
+$gutter:								18px;
+
+// Map screen sizes
+$bp-namespace-obj: (
+	(xs),
+	(sm, 768),
+	(md, 992px),
+	(lg, 1200px)
+) !default;
 
 
 /**
@@ -34,24 +45,35 @@ $half-gutter: 0.5rem;
 $half-gutter-adjustment: -$half-gutter;
 
 /**
- * Function for fetching column percentage because I don't trust browser rounding.
- *
- * Really wish Sass had a notion of a switch statement, but this will have to do for now...
+ * Run the column percent function programatically
  */
 @function get-col-percent($column-num) {
-			 @if $column-num == 1  { @return  8.333333333%; }
-	@else if $column-num == 2  { @return 16.666666667%; } 
-	@else if $column-num == 3  { @return 25%; } 
-	@else if $column-num == 4  { @return 33.333333333%;	} 
-	@else if $column-num == 5  { @return 41.666666667%;	} 
-	@else if $column-num == 6  { @return 50%;	} 
-	@else if $column-num == 7  { @return 58.333333333%;	} 
-	@else if $column-num == 8  { @return 66.666666667%;	} 
-	@else if $column-num == 9  { @return 75%;	} 
-	@else if $column-num == 10 { @return 83.333333333%;	} 
-	@else if $column-num == 11 { @return 91.666666667%;	} 
-	@else if $column-num == 12 { @return 100%;	} 
-	@else { @return 8.333333333%;	}
+	
+	$column-width: $column-num / $number-of-columns * 1%;
+	
+	@return $column-width;
+}
+
+// Useful mixins
+
+@mixin horizontal-padding($value) {
+	padding-left: $value;
+	padding-right: $value;
+}
+
+@mixin vertical-padding($value) {
+	padding-top: $value;
+	padding-bottom: $value;
+}
+
+@mixin horizontal-margin($value) {
+	margin-left: $value;
+	margin-right: $value;
+}
+
+@mixin vertical-margin($value) {
+	margin-top: $value;
+	margin-bottom: $value;
 }
 
 
@@ -63,8 +85,7 @@ $half-gutter-adjustment: -$half-gutter;
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
-	margin-right: $half-gutter-adjustment;
-	margin-left: $half-gutter-adjustment;
+	@include horizontal-margin(-$gutter-width / 2);
 }
 
 
@@ -74,8 +95,7 @@ $half-gutter-adjustment: -$half-gutter;
   flex-direction: column;
   flex-grow: 0;
   flex-shrink: 0;
-  padding-right: $half-gutter;
-  padding-left: $half-gutter;
+	@include horizontal-padding($gutter-width / 2)
 }
 
 @mixin col-flex {
@@ -99,7 +119,8 @@ $half-gutter-adjustment: -$half-gutter;
 		@include col-flex;
 	}
 
-	@for $i from 1 through 12 {
+	// Run the loop for as many columns as speficied
+	@for $i from 1 through $number-of-columns {
 		.col-#{$namespace}-#{$i} {
 			@include col;
 			flex-basis: get-col-percent($i);
@@ -107,9 +128,13 @@ $half-gutter-adjustment: -$half-gutter;
 		}
 	}
 
-	@for $i from 1 through 11 {
+	@for $i from 1 through $number-of-columns {
+		
+		// Don't include the .off class for the last column
+		@if ( $i != $number-of-columns ) {	
 		.off-#{$namespace}-#{$i} {
 			margin-left: get-col-percent($i);
+		}
 		}
 	}
 
