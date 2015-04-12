@@ -7,6 +7,7 @@ Advanced, highly customizable, cross browser grid system, supercharged with flex
 ### Features:
 
 - Responsive, mobile first approach
+- Progressive enhancement: a default grid with floats is provided, and browsers with specific support get a flex grid
 - Define specific colum size or use a flex column (a column that grows to fill space)
 - Define offset to push column a specific number of columns
 - Define your own grid - 8, 12, 16, 24... you chose!
