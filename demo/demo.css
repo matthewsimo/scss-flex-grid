@@ -2,7 +2,7 @@
  * REFLEX
  * 
  * Supercharge your grid with flexbox
- * @version 0.2.0
+ * @version 0.2.1
  * @author Matthew Simo
  * @author Louis-Olivier Brassard 'loup-brun'
  */
@@ -76,19 +76,19 @@ border-radius: 1px 1px 3px #000;
  * the grid and applied to global styles.
  *
  */
-.row, #wrapper {
+.row {
   *zoom: 1;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   margin-left: -9px;
   margin-right: -9px; }
-  .row:after, #wrapper:after {
+  .row:after {
     content: "";
     display: table; }
-  .row:after, #wrapper:after {
+  .row:after {
     clear: both; }
 
-.flexwrap .row, .flexwrap #wrapper {
+.flexwrap .row {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -750,7 +750,7 @@ a {
   a:hover {
     color: Tomato; }
 
-h1, h2, h3, h4, h5 {
+h1, h2, h3, h4, h5, h6 {
   margin: 0 0 .5em; }
 
 p, ul {
@@ -775,7 +775,7 @@ code {
   border-radius: 2px;
   padding: 2px 3px; }
 
-.row, #wrapper {
+.row {
   margin-top: 16px; }
 
 .item {
@@ -786,11 +786,28 @@ code {
   margin-bottom: 16px;
   width: 100%; }
 
+.bg--blue {
+  background-color: cornflowerblue; }
+
+.bg--red {
+  background-color: tomato; }
+
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1000px;
+  width: 85%; }
+
+.spacing {
+  padding-top: 16px;
+  padding-bottom: 16px; }
+
 #wrapper {
-  margin: 5em auto 8em;
-  max-width: 80%; }
+  margin-top: 48px;
+  margin-bottom: 48px; }
 
 #sidebar {
+  border-left: 1px solid gainsboro;
   float: right;
   -webkit-box-ordinal-group: 3;
   -webkit-order: 2;

@@ -11,7 +11,7 @@
 	</head>
 	<body>
 
-		<div id="wrapper">
+		<div id="wrapper" class="container row">
 			<aside id="sidebar" class="col col-xs-12 col-sm-3">
 				<small>This project is a fork of <a href="https://twitter.com/matthewsimo">@matthewsimo</a>'s css-flex-grid</small>
 				<h4>Maintainer: <a href="https://github.com/loup-brun/">@loup-brun</a> Louis-Olivier Brassard</h4>
@@ -22,14 +22,17 @@
 			</aside>
 
 			<main id="main" class="col col-xs-12 col-sm-9">
-				<header>
-					<h1>Reflex.gs</h1>
-					<h6>Supercharge your grid with flexbox</h6>
-
+				<header class="row">
+					<div class="col col-xs-12 col-sm-3">
+						<h1>Reflex.gs</h1>
+					</div>
+					<div class="col col-xs-12 col-sm-9">
+						<h5>Supercharge your grid with flexbox</h5>
+					</div>
 				</header>
 
 				<p>Complete, flexible, do-what-you-want, sass grid implementation using flexbox &amp; scss. This demo requires <a href="http://caniuse.com/#feat=flexbox">flexbox support</a>.</p>
-				<p><mark>NEW!</mark> Reflex now supports float columns (check out the <a href="no-flex.html">example</a>. What that actually translates to is that the default layout runs on floats. Modernizr adds a class to the html, and this class enables <code>flex</code> on rows and columns. You can specify a bunch of flex properties, but they won't be effective unless you specify <code>display: flex</code>. This is what we're doing with Modernizr.</p>
+				<p><mark>NEW!</mark> Reflex now supports float columns (check out the <a href="no-flex.html">example</a>). What that actually translates to is that the default layout runs on floats. Modernizr adds a class to the html, and this class enables <code>flex</code> on rows and columns. You can specify a bunch of flex properties, but they won't be effective unless you specify <code>display: flex</code>. This is what we're doing with Modernizr.</p>
 
 				<hr>
 
@@ -327,10 +330,60 @@
 						<div class="item"></div>
 					</div>
 				</div>
-				
+
+				<hr />
+
+				<h2>Even Heights</h2>
+
+				<p>Flex columns will have even heights - neat!</p>
+
 				<div class="row">
-					<div class="col col-md-6 bg--blue"></div>
-					<div class="col col-md-6 bg--orange"></div>
+					<div class="col col-xs-6 bg--blue spacing">
+						<h3>Super columns</h3>
+						<p>Columns with flex have even heights!</p>
+					</div>
+					<div class="col col-xs-6 bg--red spacing">
+						<div class="container">
+							<div class="row">
+								<div class="col col-xs-12 col-sm-6 col-md-4 col-lg-3">
+									<div class="item"></div>
+								</div>
+								<div class="col col-xs-12 col-sm-6 col-md-4 col-lg-3">
+									<div class="item"></div>
+								</div>
+								<div class="col col-xs-12 col-sm-6 col-md-4 col-lg-3">
+									<div class="item"></div>
+								</div>
+								<div class="col col-xs-12 col-sm-6 col-md-4 col-lg-3">
+									<div class="item"></div>
+								</div>
+								<div class="col col-xs-12 col-sm-6 col-md-4 col-lg-3">
+									<div class="item"></div>
+								</div>
+								<div class="col col-xs-12 col-sm-6 col-md-4 col-lg-3">
+									<div class="item"></div>
+								</div>
+								<div class="col col-xs-12 col-sm-6 col-md-4 col-lg-3">
+									<div class="item"></div>
+								</div>
+								<div class="col col-xs-12 col-sm-6 col-md-4 col-lg-3">
+									<div class="item"></div>
+								</div>
+								<div class="col col-xs-12 col-sm-6 col-md-4 col-lg-3">
+									<div class="item"></div>
+								</div>
+								<div class="col col-xs-12 col-sm-6 col-md-4 col-lg-3">
+									<div class="item"></div>
+								</div>
+								<div class="col col-xs-12 col-sm-6 col-md-4 col-lg-3">
+									<div class="item"></div>
+								</div>
+								<div class="col col-xs-12 col-sm-6 col-md-4 col-lg-3">
+									<div class="item"></div>
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
 
 				<hr>
@@ -339,8 +392,8 @@
 					<div class="col col-xs-12">
 						<h2 id="overriding-namespaces">Overriding Namespaces</h2>
 
-						<p>Configuration may be achieved by changing the values in the <code>_rflx.variables.scss</code> file. Flex grid declares a variable <code>$bp-namespace-obj</code>. This variable defines the breakpoints that you'd like to set and their associated namespaces.</p>
-						<p>Default: <code>$bp-namespace-obj: (	(xs), (sm, 769px), (md, 992px), (lg, 1200px);</code></p>
+						<p>Configuration may be achieved by changing the values in the <code>_rflx.variables.scss</code> file. Reflex.gs declares a variable <code>$bp-namespace-obj</code>. This variable defines the <strong>breakpoints</strong> that you'd like to set and their associated namespaces.</p>
+						<p>Default: <code>$bp-namespace-obj: (	(xs), (sm, 769px), (md, 992px), (lg, 1200px) );</code></p>
 						<p>You can add your own namespaces and breakpoints, the grid can accept as many as you give it. Flex grid is built from a mobile first approach, meaning you should always keep your base namespace first, this will ensure that the others cascade over it correctly.</p>
 					</div>
 
@@ -351,7 +404,7 @@
 				<div class="row">
 					<div class="col col-xs-12">
 						<h2 id="questions">Questions</h2>
-						<p>You can always <a href="https://github.com/loup-brun/reflex.gs/issues">make an issue</a> on the github repo.</p>
+						<p>You can always <a href="https://github.com/loup-brun/reflex.gs/issues">file an issue</a> on the github repo.</p>
 					</div>
 
 				</div>

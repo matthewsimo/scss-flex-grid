@@ -109,12 +109,6 @@ module.exports = function ( grunt ) {
 	);
 
 	grunt.registerTask(
-		'default',
-		'Default task - compile the files',
-		['compile']
-	);
-
-	grunt.registerTask(
 		'dist',
 		'Compile files ready for production',
 		['version', 'sass:dist']
@@ -130,6 +124,12 @@ module.exports = function ( grunt ) {
 		'demo',
 		'Run the tasks to build/compile the demo',
 		['sass:demo']
+	);
+
+	grunt.registerTask(
+		'default',
+		'Default task - compile the files',
+		['compile']
 	);
 
 };

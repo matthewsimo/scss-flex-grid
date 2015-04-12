@@ -31,6 +31,10 @@
 	@include clearfix;
 	@include box-sizing(border-box);
 	@include horizontal-margin(-$gutter-width / 2);
+	@include flex-direction(row);
+	@include flex-wrap(wrap);
+	@include align-items(stretch);
+
 }
 
 // Only apply flex if flexwrap is supported
@@ -38,8 +42,6 @@
 .flexwrap {	
 	.row {
 		@include flex;
-		@include flex-direction(row);
-		@include flex-wrap(wrap);
 	}
 	
 	.col {

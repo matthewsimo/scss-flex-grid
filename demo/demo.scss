@@ -20,7 +20,7 @@ a {
 	}
 }
 
-h1, h2, h3, h4, h5 {
+h1, h2, h3, h4, h5, h6 {
 	margin: 0 0 .5em;	
 }
 
@@ -64,13 +64,32 @@ code {
 	width: 100%;
 }
 
+.bg--blue {
+	background-color: cornflowerblue;
+}
+
+.bg--red {
+	background-color: tomato;
+}
+
+.container {
+	@include horizontal-margin(auto);
+	max-width: 1000px;
+	width: 85%;
+}
+
+.spacing {
+	@include vertical-padding($spacing);
+}
+
 #wrapper {
-	@extend .row;
-	margin: 5em auto 8em;
-	max-width: 80%;
+	@include vertical-margin($spacing * 3);
 }
 
 #sidebar {
+	
+	//background-color: white;
+	border-left: 1px solid gainsboro;
 	// No flexbox
 	float: right;
 	
