@@ -120,5 +120,11 @@ module.exports = function ( grunt ) {
 		'Serve the site and auto-regenerate on file change',
 		['compile', 'watch']
 	);
+	
+	grunt.registerTask(
+		'demo',
+		'Run the tasks to build/compile the demo',
+		['sass:demo']
+	);
 
 };

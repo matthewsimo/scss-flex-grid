@@ -192,7 +192,10 @@ border-radius: 1px 1px 3px #000;
 		
 		.col-#{$namespace}-#{$i} {
 			@include flex-basis(get-col-percent($i));
+			// Formal width
 			width: get-col-percent($i);
+			// IE 10, 11 bug: needs a max-width to work in flex
+			max-width: get-col-percent($i);
 		}
 }
 
