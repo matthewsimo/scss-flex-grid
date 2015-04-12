@@ -55,7 +55,7 @@ module.exports = function ( grunt ) {
 
 		sass: {
 			// compile different stylesheets to be loaded async
-			build: {
+			compile: {
 				files: {
 					'<%= paths.dist %><%= pkg.name %>-<%= pkg.version %>.css': '<%= paths.src %>main.scss'
 				},
@@ -86,7 +86,7 @@ module.exports = function ( grunt ) {
 		watch: {
 			sass: {
 				files: ['<%= paths.src %>**/*.scss'],
-				tasks: ['sass:build', 'copy']
+				tasks: ['sass:compile', 'copy']
 			}
 		}
 	});
@@ -94,19 +94,19 @@ module.exports = function ( grunt ) {
 	grunt.registerTask(
 		'compile',
 		'Compile without minification', 
-		['sass:build']
+		['sass:compile']
 	);
 
 	grunt.registerTask(
 		'default',
-		'Default task - build the files',
+		'Default task - compile the files',
 		['compile']
 	);
 
 	grunt.registerTask(
 		'dist',
 		'Compile files ready for production',
-		['sass:dist', 'copy']
+		['version', 'sass:dist', 'copy']
 	);
 
 	grunt.registerTask(
