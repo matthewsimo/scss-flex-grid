@@ -25,8 +25,8 @@
  */
 
 @import
-	'partials/variables',
-	'partials/mixins'
+	'reflex/variables',
+	'reflex/mixins'
 	;
 
 
@@ -34,12 +34,13 @@
 // Row wrapper class, flex box parent.
 
 .row {
-	@include flex;
 	@include box-sizing(border-box);
+	@include horizontal-margin(-$gutter-width / 2);
+	@include flex;
 	@include flex-direction(row);
 	@include flex-wrap(wrap);
-	@include horizontal-margin(-$gutter-width / 2);
 }
+
 
 // Add .col class to each column
 // This method requires requires the additional .col class on each col,
