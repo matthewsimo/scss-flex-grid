@@ -812,7 +812,7 @@ pre, code {
   background-color: CornflowerBlue;
   border-radius: 2px;
   display: block;
-  padding: 16px;
+  padding: 16px 0;
   min-height: 32px;
   margin-bottom: 16px;
   width: 100%; }
