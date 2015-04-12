@@ -69,6 +69,10 @@ code {
 }
 
 #sidebar {
+	// No flexbox
+	float: right;
+	
+	// W/ flexbox
 	-webkit-box-ordinal-group: 3;
 	-webkit-order: 2;
 	-ms-flex-order: 2;

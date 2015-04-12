@@ -75,6 +75,21 @@ border-radius: 1px 1px 3px #000;
 	@include prefix(box-sizing, $param, 'moz');
 }
 
+// Micro clearfix by @necolas
+
+// NOTE: only includes :after pseudo elements
+// since :before creates a gap that breaks columns (such as in Chrome)
+@mixin clearfix {
+	*zoom: 1;
+	&:after {
+		content: "";
+		display: table;
+	}
+	&:after {
+		clear: both;
+	}
+}
+
 // Include flex vendor prefixes by hand since naming varies very much
 @mixin flex() {
 	display: -webkit-box;
@@ -122,17 +137,34 @@ border-radius: 1px 1px 3px #000;
 @mixin col {
 	@include horizontal-padding($gutter-width / 2);
 	@include box-sizing(border-box);
-	@include flex;
+	
+	// Float version
+	// ------------------------
+	float: left;
+	@include clearfix;
+	
+	// Flex version
+	// ------------------------
+	//@include flex; // this is included in the fallback
 	@include flex-direction(column);
 	@include flex-grow(0);
 	@include flex-shrink(0);
+	
 }
 
 @mixin col-flex {
+	
+	max-width: 100%;
 	@include col;
+	
+	// No flex
+	// ------------------------
+	display: table-cell;
+	
+	// Flex version
+	// ------------------------
 	@include flex-grow(1);
 	@include flex-basis(0);
-	max-width: 100%;
 }
 
 // Generate a set of grid column classes using a namespace
@@ -150,15 +182,17 @@ border-radius: 1px 1px 3px #000;
 
 	// Run the loop for as many columns as speficied in the configuration
 	@for $i from 1 through $number-of-columns {
-		.col-#{$namespace}-#{$i} {
-			// By uncommenting the line below, the common column styles will
-			// be included in each column and you won't need to add the .col
-			// class to each element. However, this significantly increases
-			// the size of the final css file.
+		
+		// By uncommenting the line below, the common column styles will
+		// be included in each column and you won't need to add the .col
+		// class to each element. However, this significantly increases
+		// the size of the final css file.
 
-			//@include col;
+		// .col-#{$namespace}-#{$i} { @include col; }
+		
+		.col-#{$namespace}-#{$i} {
 			@include flex-basis(get-col-percent($i));
-			max-width:  get-col-percent($i);
+			width: get-col-percent($i);
 		}
 }
 

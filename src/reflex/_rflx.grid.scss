@@ -28,6 +28,7 @@
 // Row wrapper class, flex box parent.
 
 .row {
+	@include clearfix;
 	@include box-sizing(border-box);
 	@include horizontal-margin(-$gutter-width / 2);
 }
@@ -39,6 +40,10 @@
 		@include flex;
 		@include flex-direction(row);
 		@include flex-wrap(wrap);
+	}
+	
+	.col {
+		@include flex;
 	}
 }
 
