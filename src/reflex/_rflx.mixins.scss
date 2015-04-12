@@ -1,0 +1,173 @@
+// Mixins
+// ----------------------------------------------
+
+// Functions
+@function get-col-percent($column-num) {
+
+	$column-width: $column-num / $number-of-columns * 100%;
+
+	@return $column-width;
+}
+
+// Useful mixins
+@mixin horizontal-padding($value) {
+	padding-left: $value;
+	padding-right: $value;
+}
+
+@mixin vertical-padding($value) {
+	padding-top: $value;
+	padding-bottom: $value;
+}
+
+@mixin horizontal-margin($value) {
+	margin-left: $value;
+	margin-right: $value;
+}
+
+@mixin vertical-margin($value) {
+	margin-top: $value;
+	margin-bottom: $value;
+}
+
+// Vendor prefixes
+
+/*
+Include the prefixes for a given property.
+
+Usage:
+
+```scss
+@mixin border-radius($param...) {
+@include prefix(border-radius, $param, 'webkit' 'moz' 'o');
+}
+```
+
+That way, you can include all the vendor prefixes just by adding
+
+```scss
+.selector {
+@include border-radius(1px 1px 3px #000);
+}
+```
+
+which will output to
+
+```css
+.selector {
+-webkit-border-radius: 1px 1px 3px #000;
+-moz-border-radius: 1px 1px 3px #000;
+-o-border-radius: 1px 1px 3px #000;
+border-radius: 1px 1px 3px #000;
+}
+```
+*/
+
+@mixin prefix($property, $value, $prefixes: ()) {
+	@each $prefix in $prefixes {
+		-#{$prefix}-#{$property}: $value;
+	}
+
+	#{$property}: $value;
+}
+
+@mixin box-sizing($param) {
+	@include prefix(box-sizing, $param, 'moz');
+}
+
+// Include flex vendor prefixes by hand since naming varies very much
+@mixin flex() {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+}
+
+@mixin flex-grow($param) {
+	-webkit-box-flex: $param;
+	-webkit-flex-grow: $param;
+	-ms-flex-positive: $param;
+	flex-grow: $param;
+}
+
+@mixin flex-direction($param) {
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: $param;
+	-ms-flex-direction: $param;
+	flex-direction: $param;
+}
+
+@mixin flex-basis($param) {
+	-webkit-flex-basis: $param;
+	-ms-flex-preferred-size: $param;
+	flex-basis: $param;
+}
+
+@mixin flex-wrap($param) {
+	-webkit-flex-wrap: $param;
+	-ms-flex-wrap: $param;
+	flex-wrap: $param;
+}
+
+@mixin flex-shrink($param) {
+	-webkit-flex-shrink: $param;
+	-ms-flex-negative: $param;
+	flex-shrink: $param;
+}
+
+
+// Grid mixins
+
+@mixin col {
+	@include horizontal-padding($gutter-width / 2);
+	@include box-sizing(border-box);
+	@include flex;
+	@include flex-direction(column);
+	@include flex-grow(0);
+	@include flex-shrink(0);
+}
+
+@mixin col-flex {
+	@include col;
+	@include flex-grow(1);
+	@include flex-basis(0);
+	max-width: 100%;
+}
+
+// Generate a set of grid column classes using a namespace
+//
+// .col-[namespace] for intelligent column division
+// .col-[namespace]-[number] for a column that covers a specific number of columns (1-12)
+// .off-[namespace]-[number] for pushing a col a specific number of columns (1-11)
+
+@mixin grid($namespace) {
+
+	// Intelligent columns, with no width specified
+	.col-#{$namespace} {
+		@include col-flex;
+	}
+
+	// Run the loop for as many columns as speficied in the configuration
+	@for $i from 1 through $number-of-columns {
+		.col-#{$namespace}-#{$i} {
+			// By uncommenting the line below, the common column styles will
+			// be included in each column and you won't need to add the .col
+			// class to each element. However, this significantly increases
+			// the size of the final css file.
+
+			//@include col;
+			@include flex-basis(get-col-percent($i));
+			max-width:  get-col-percent($i);
+		}
+}
+
+// Offsets
+// Don't include the .off class for the last column
+@for $i from 1 through ($number-of-columns - 1) {
+
+	.off-#{$namespace}-#{$i} {
+		margin-left: get-col-percent($i);
+	}
+}
+}

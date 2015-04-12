@@ -1,0 +1,76 @@
+@import '../src/main';
+
+html { 
+	background: GhostWhite; 
+	color: DarkSlateBlue;
+	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+	font-size: 100%;
+	font-weight: 300;
+	line-height: 1.3;
+}
+
+a {
+	color: DarkSlateBlue;
+	transition: color 0.2s ease-in-out;
+
+	&:hover {
+		color: Tomato;
+	}
+}
+
+h1, h2, h3, h4, h5 {
+	margin: 0 0 .5em;	
+}
+
+p, ul {
+	margin: 0 0 1em;
+}
+
+li {
+	line-height: 1.5;
+	margin: .2em;
+}
+
+small {
+	line-height: 1.5;
+}
+
+hr {
+	border: none;
+	border-top: 1px solid DarkSlateBlue;
+	height: 1px;
+	margin: 1rem 0;
+}
+
+code {
+	background: floralwhite;
+	border: 1px solid gainsboro;
+	border-radius: 2px;
+	padding: 2px 3px;
+}
+
+.row {
+	margin-top: 1rem; 
+}
+
+.item {
+	background-color: CornflowerBlue;
+	border-radius: 2px;
+	display: block;
+	height: 2rem; 
+	margin-bottom: 1rem;
+	width: 100%;
+}
+
+#wrapper {
+	@extend .row;
+	margin: 5em auto 8em;
+	max-width: 80%;
+}
+
+#sidebar {
+	-webkit-box-ordinal-group: 3;
+	-webkit-order: 2;
+	-ms-flex-order: 2;
+	order: 2;
+}
