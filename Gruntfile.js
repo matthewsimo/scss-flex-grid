@@ -81,6 +81,10 @@ module.exports = function ( grunt ) {
 				files: {
 					'<%= paths.demo %>demo.css': '<%= paths.demo %>demo.scss'	
 				}
+			},
+			
+			options: {
+				precision: 3
 			}
 		},
 
