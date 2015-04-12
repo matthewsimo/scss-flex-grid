@@ -28,13 +28,24 @@
 // Row wrapper class, flex box parent.
 
 .row {
+	@include clearfix;
 	@include box-sizing(border-box);
 	@include horizontal-margin(-$gutter-width / 2);
-	@include flex;
-	@include flex-direction(row);
-	@include flex-wrap(wrap);
 }
 
+// Only apply flex if flexwrap is supported
+// Needs a modernizr build 
+.flexwrap {	
+	.row {
+		@include flex;
+		@include flex-direction(row);
+		@include flex-wrap(wrap);
+	}
+	
+	.col {
+		@include flex;
+	}
+}
 
 // Add .col class to each column
 // This method requires requires the additional .col class on each col,

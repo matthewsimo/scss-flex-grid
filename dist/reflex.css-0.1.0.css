@@ -1,0 +1,70 @@
+/*
+Error: File to import not found or unreadable: partials/variables.
+       Load path: C:/Users/Louis/Documents/DeveloppementsWeb/projects/scss-flex-grid
+        on line 28 of src/reflex/_rflx.grid.scss
+        from line 30 of src/main.scss
+
+23:  * the grid and applied to global styles.
+24:  *
+25:  *\/
+26: 
+27: @import
+28: 	'reflex/rflx.variables',
+29: 	'reflex/rflx.mixins',
+30: 	'reflex/rflx.grid'
+31: 	;
+
+Backtrace:
+src/reflex/_rflx.grid.scss:28
+src/main.scss:30
+C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.9/lib/sass/tree/import_node.rb:66:in `rescue in import'
+C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.9/lib/sass/tree/import_node.rb:45:in `import'
+C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.9/lib/sass/tree/import_node.rb:28:in `imported_file'
+C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.9/lib/sass/tree/import_node.rb:37:in `css_import?'
+C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:301:in `visit_import'
+C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.9/lib/sass/tree/visitors/base.rb:36:in `visit'
+C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
+C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.9/lib/sass/stack.rb:79:in `block in with_base'
+C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.9/lib/sass/stack.rb:115:in `with_frame'
+C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.9/lib/sass/stack.rb:79:in `with_base'
+C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:158:in `visit'
+C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:315:in `block (2 levels) in visit_import'
+C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:315:in `map'
+C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:315:in `block in visit_import'
+C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.9/lib/sass/stack.rb:88:in `block in with_import'
+C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.9/lib/sass/stack.rb:115:in `with_frame'
+C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.9/lib/sass/stack.rb:88:in `with_import'
+C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:312:in `visit_import'
+C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.9/lib/sass/tree/visitors/base.rb:36:in `visit'
+C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
+C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.9/lib/sass/stack.rb:79:in `block in with_base'
+C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.9/lib/sass/stack.rb:115:in `with_frame'
+C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.9/lib/sass/stack.rb:79:in `with_base'
+C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:158:in `visit'
+C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.9/lib/sass/tree/visitors/base.rb:52:in `block in visit_children'
+C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.9/lib/sass/tree/visitors/base.rb:52:in `map'
+C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.9/lib/sass/tree/visitors/base.rb:52:in `visit_children'
+C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:167:in `block in visit_children'
+C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:179:in `with_environment'
+C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:166:in `visit_children'
+C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.9/lib/sass/tree/visitors/base.rb:36:in `block in visit'
+C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:186:in `visit_root'
+C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.9/lib/sass/tree/visitors/base.rb:36:in `visit'
+C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:157:in `visit'
+C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:8:in `visit'
+C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.9/lib/sass/tree/root_node.rb:36:in `css_tree'
+C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.9/lib/sass/tree/root_node.rb:29:in `render_with_sourcemap'
+C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.9/lib/sass/engine.rb:368:in `_render_with_sourcemap'
+C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.9/lib/sass/engine.rb:285:in `render_with_sourcemap'
+C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.9/lib/sass/exec/sass_scss.rb:396:in `run'
+C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.9/lib/sass/exec/sass_scss.rb:62:in `process_result'
+C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.9/lib/sass/exec/base.rb:52:in `parse'
+C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.9/lib/sass/exec/base.rb:19:in `parse!'
+C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.9/bin/sass:13:in `<top (required)>'
+C:/Ruby21-x64/bin/sass:23:in `load'
+C:/Ruby21-x64/bin/sass:23:in `<main>'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Error: File to import not found or unreadable: partials/variables.\A        Load path: C:/Users/Louis/Documents/DeveloppementsWeb/projects/scss-flex-grid\A         on line 28 of src/reflex/_rflx.grid.scss\A         from line 30 of src/main.scss\A \A 23:  * the grid and applied to global styles.\A 24:  *\A 25:  */\A 26: \A 27: @import\A 28: 	'reflex/rflx.variables',\A 29: 	'reflex/rflx.mixins',\A 30: 	'reflex/rflx.grid'\A 31: 	;"; }
