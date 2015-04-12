@@ -52,13 +52,41 @@ border-radius: 1px 1px 3px #000;
 }
 ```
 */
+/**
+ * REFLEX
+ * 
+ * Supercharge your grid with flexbox
+ * @version 0.1.0
+ * @author Matthew Simo
+ * @author Louis-Olivier Brassard 'loup-brun'
+ */
+/**
+ * Break point namespace object
+ *
+ * Set the default namespace object with these defaults with the 
+ * understanding that you can pass in whatever you might require for your site.
+ *
+ * $bp-namespace-obj is a Sass list with nested lists inside. Each sub list defines two things. 
+ * 1. The namespace for that breakpoint. (Required) (i.e. xs, sm, md, lg)
+ * 2. The min-width measurement for the breakpoint for that namespace. (i.e. 48em, 62em, 75em)
+ *
+ * Note: These should be in the proper order (at least till libsass handles map keys properly).
+ * 
+ * Note: If the measurement is left out then it will be skipped when generating 
+ * the grid and applied to global styles.
+ *
+ */
 .row, #wrapper {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  margin-left: -9px;
+  margin-right: -9px; }
+
+.flexwrap .row, .flexwrap #wrapper {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -webkit-flex-direction: row;
@@ -66,9 +94,7 @@ border-radius: 1px 1px 3px #000;
   flex-direction: row;
   -webkit-flex-wrap: wrap;
   -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  margin-left: -9px;
-  margin-right: -9px; }
+  flex-wrap: wrap; }
 
 .col {
   padding-left: 9px;
