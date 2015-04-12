@@ -1,4 +1,4 @@
-Reflex
+Reflex.gs
 ===
 
 Supercharge your grid with flexbox.
