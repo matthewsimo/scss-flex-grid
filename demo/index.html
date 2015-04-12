@@ -23,11 +23,11 @@
 
 			<main id="main" class="col col-xs-12 col-sm-9">
 				<header class="row">
-					<div class="col col-xs-12 col-sm-3">
+					<div class="col col-xs-12 col-sm-5 rflx-logo">
 						<h1>Reflex.gs</h1>
 					</div>
-					<div class="col col-xs-12 col-sm-9">
-						<h5>Supercharge your grid with flexbox</h5>
+					<div class="col col-xs-12 col-sm-7 flex-center-v">
+						<h4>Advanced, highly customizable, cross-browser, responsive grid system, supercharged with flexbox.</h4>
 					</div>
 				</header>
 
@@ -337,12 +337,30 @@
 
 				<p>Flex columns will have even heights - neat!</p>
 
-				<div class="row">
-					<div class="col col-xs-6 bg--blue spacing">
+				<div class="row row--space">
+					<div class="col col-xs-6 bg--blue flex-center-v text-center">
 						<h3>Super columns</h3>
 						<p>Columns with flex have even heights!</p>
 					</div>
-					<div class="col col-xs-6 bg--red spacing">
+					<div class="col col-xs-6 bg--red flex-center-v" style="height: 300px;">
+						<p>I am <code>height: 300px;</code> (and my neighbor is too!).</p>
+					</div>
+				</div>
+
+				<p>Psst! With flexbox, you can easily vertically center content! just add a class with</p>
+				<pre>.flex-center-v {<br />  @include justify-content(center);<br />}</pre>
+
+				<hr />
+
+				<h2>Nesting</h2>
+
+				<p>Reflex.gs supports grid nesting.</p>
+
+				<div class="row row--space">
+					<div class="col col-xs-6 bg--blue flex-center-v text-center">
+						<h3>Awesome!</h3>
+					</div>
+					<div class="col col-xs-6 bg--red">
 						<div class="container">
 							<div class="row">
 								<div class="col col-xs-12 col-sm-6 col-md-4 col-lg-3">
@@ -393,7 +411,8 @@
 						<h2 id="overriding-namespaces">Overriding Namespaces</h2>
 
 						<p>Configuration may be achieved by changing the values in the <code>_rflx.variables.scss</code> file. Reflex.gs declares a variable <code>$bp-namespace-obj</code>. This variable defines the <strong>breakpoints</strong> that you'd like to set and their associated namespaces.</p>
-						<p>Default: <code>$bp-namespace-obj: (	(xs), (sm, 769px), (md, 992px), (lg, 1200px) );</code></p>
+						<p>Default:</p>
+						<pre>$bp-namespace-obj: ( <br />  (xs),<br />  (sm, 769px),<br />  (md, 992px),<br />  (lg, 1200px) <br/>);</pre>
 						<p>You can add your own namespaces and breakpoints, the grid can accept as many as you give it. Flex grid is built from a mobile first approach, meaning you should always keep your base namespace first, this will ensure that the others cascade over it correctly.</p>
 					</div>
 

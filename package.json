@@ -1,7 +1,7 @@
 {
 	"name": "reflex.gs",
 	"version": "0.2.1",
-	"description": "Supercharge your grid with flexbox",
+	"description": "Advanced, highly customizable, cross-browser, responsive grid system, supercharged with flexbox.",
 	"main": "index.js",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1"

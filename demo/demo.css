@@ -80,8 +80,8 @@ border-radius: 1px 1px 3px #000;
   *zoom: 1;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  margin-left: -9px;
-  margin-right: -9px;
+  margin-left: -10px;
+  margin-right: -10px;
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
@@ -110,8 +110,8 @@ border-radius: 1px 1px 3px #000;
   display: flex; }
 
 .col {
-  padding-left: 9px;
-  padding-right: 9px;
+  padding-left: 10px;
+  padding-right: 10px;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   float: left;
@@ -138,8 +138,8 @@ border-radius: 1px 1px 3px #000;
 
 .col-xs {
   max-width: 100%;
-  padding-left: 9px;
-  padding-right: 9px;
+  padding-left: 10px;
+  padding-right: 10px;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   float: left;
@@ -292,8 +292,8 @@ border-radius: 1px 1px 3px #000;
 @media only screen and (min-width: 769px) {
   .col-sm {
     max-width: 100%;
-    padding-left: 9px;
-    padding-right: 9px;
+    padding-left: 10px;
+    padding-right: 10px;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
     float: left;
@@ -445,8 +445,8 @@ border-radius: 1px 1px 3px #000;
 @media only screen and (min-width: 992px) {
   .col-md {
     max-width: 100%;
-    padding-left: 9px;
-    padding-right: 9px;
+    padding-left: 10px;
+    padding-right: 10px;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
     float: left;
@@ -598,8 +598,8 @@ border-radius: 1px 1px 3px #000;
 @media only screen and (min-width: 1200px) {
   .col-lg {
     max-width: 100%;
-    padding-left: 9px;
-    padding-right: 9px;
+    padding-left: 10px;
+    padding-right: 10px;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
     float: left;
@@ -748,6 +748,10 @@ border-radius: 1px 1px 3px #000;
 
   .off-lg-11 {
     margin-left: 91.667%; } }
+*, *:before, *:after {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
 html {
   background: GhostWhite;
   color: DarkSlateBlue;
@@ -755,6 +759,14 @@ html {
   font-size: 100%;
   font-weight: 300;
   line-height: 1.3; }
+
+.rflx-logo {
+  background-color: darkslateblue;
+  color: floralwhite;
+  padding: 16px;
+  text-align: center; }
+  .rflx-logo h1 {
+    margin: 0; }
 
 a {
   color: DarkSlateBlue;
@@ -781,14 +793,19 @@ hr {
   height: 1px;
   margin: 16px 0; }
 
-code {
+pre {
+  word-wrap: break-word;
+  white-space: pre-wrap;
+  text-align: left; }
+
+pre, code {
   background: floralwhite;
   border: 1px solid gainsboro;
   border-radius: 2px;
   padding: 2px 3px; }
 
-.row {
-  margin-top: 16px; }
+.text-center {
+  text-align: center; }
 
 .item {
   background-color: CornflowerBlue;
@@ -801,18 +818,33 @@ code {
 .bg--blue {
   background-color: cornflowerblue; }
 
+.bg--blue-light {
+  background-color: darkslateblue;
+  color: cornflowerblue; }
+
 .bg--red {
   background-color: tomato; }
 
 .container {
   margin-left: auto;
   margin-right: auto;
+  padding-left: 16px;
+  padding-right: 16px;
   max-width: 1000px;
   width: 100%; }
 
-.spacing {
+.row {
+  margin-bottom: 16px; }
+
+.row--space > .col {
   padding-top: 16px;
   padding-bottom: 16px; }
+
+.flex-center-v, .rflx-logo {
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center; }
 
 #wrapper {
   margin-top: 48px;

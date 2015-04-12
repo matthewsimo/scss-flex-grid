@@ -140,6 +140,13 @@ border-radius: 1px 1px 3px #000;
 	align-items: $param;
 }
 
+@mixin justify-content($param) {
+	-webkit-box-pack: $param;
+	-webkit-justify-content: $param;
+	-ms-flex-pack: $param;
+	justify-content: $param;
+}
+
 
 // Grid mixins
 
