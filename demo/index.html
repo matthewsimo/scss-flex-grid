@@ -12,11 +12,11 @@
 
 		<div id="wrapper">
 			<aside id="sidebar" class="col col-xs-12 col-sm-3">
-				<h4>By <a href="http://matthewsimo.com">Louis-Olivier Brassard</a></h4>
-				<h5><a href="http://github.com/matthewsimo/scss-flex-grid">Project on GitHub</a></h5>
+				<h4>By <a href="https://github.com/loup-brun/">@loup-brun Louis-Olivier Brassard</a></h4>
+				<h5><a href="https://github.com/loup-brun/reflex.css">Project on GitHub</a></h5>
 				<small>Original project by <a href="https://twitter.com/matthewsimo">@matthewsimo</a></small>
-				<small><a href="https://github.com/matthewsimo/scss-flex-grid/issues">Find a bug?</a></small>
-				<small><a href="https://github.com/matthewsimo/scss-flex-grid/archive/master.zip">Download</a></small>
+				<small><a href="https://github.com/loup-brun/reflex.css/issues">Find a bug?</a></small>
+				<small><a href="https://github.com/loup-brun/reflex.css/archive/master.zip">Download</a></small>
 			</aside>
 
 			<main id="main" class="col col-xs-12 col-sm-9">
@@ -32,8 +32,7 @@
 				<div class="row">
 					<div class="col col-xs-12">
 						<h2>Usage</h2>
-						<p>Just <code>@import</code> the <code>_flexgrid.scss</code> file as a partial or rename <code>_flexgrid.scss</code> &rarr; <code>flexgrid.scss</code> if you'd prefer it to be compiled independently. <a href="https://github.com/matthewsimo/scss-flex-grid/archive/master.zip">Download flex grid</a></p>
-						<p>Use the generated classes to build your layout. I prefer to keep my markup clean and <code>@extend</code> the grid classes onto my elements so I don't have to muck around in html for style edits but whatever floats your boat.</p>
+						<p>Just <code>@import</code> the <code>_flexgrid.scss</code> file as a partial or rename <code>_flexgrid.scss</code> &rarr; <code>flexgrid.scss</code> if you'd prefer it to be compiled independently. <a href="https://github.com/loup-brun/reflex.css/archive/master.zip">Download flex grid</a></p>
 					</div>
 				</div>
 
@@ -331,9 +330,9 @@
 					<div class="col col-xs-12">
 						<h2 id="overriding-namespaces">Overriding Namespaces</h2>
 
-						<p>Flex grid declares a variable <code>$bp-namespace-obj</code>. This variable defines the breakpoints that you'd like to set and their associated namespaces.</p>
-						<p>To declare your own breakpoints just override this variable. By default we set it to: <code>$bp-namespace-obj: ( (xs), (sm, 32em), (md, 48em), (lg, 62em) );</code></p>
-						<p>You can add your own namespaces and breakpoints, we'll handle creating your grid. Flex grid is built from a mobile first approach, meaning you should always keep your base namespace first, this will ensure that the others cascade over it correctly.</p>
+						<p>Configuration may be achieved by changing the values in the <code>_rflx.variables.scss</code> file. Flex grid declares a variable <code>$bp-namespace-obj</code>. This variable defines the breakpoints that you'd like to set and their associated namespaces.</p>
+						<p>Default: <code>$bp-namespace-obj: (	(xs), (sm, 769px), (md, 992px), (lg, 1200px);</code></p>
+						<p>You can add your own namespaces and breakpoints, the grid can accept as many as you give it. Flex grid is built from a mobile first approach, meaning you should always keep your base namespace first, this will ensure that the others cascade over it correctly.</p>
 					</div>
 
 				</div>
@@ -343,8 +342,7 @@
 				<div class="row">
 					<div class="col col-xs-12">
 						<h2 id="questions">Questions</h2>
-
-						<p>If you have questions or bug reports don't hesitate to get in touch. You can always <a href="https://github.com/matthewsimo/scss-flex-grid/issues">make an issue</a> on the github repo, or reach out on <a href="https://twitter.com/matthewsimo">twitter</a>.</p>
+						<p>You can always <a href="https://github.com/loup-brun/reflex.css/issues">make an issue</a> on the github repo.</p>
 					</div>
 
 				</div>
