@@ -1,7 +1,7 @@
 Reflex.gs
 ===
 
-Supercharge your grid with flexbox.
+Advanced, highly customizable, cross browser grid system, supercharged with flexbox.
 
 
 ### Features:
