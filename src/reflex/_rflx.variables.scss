@@ -3,7 +3,7 @@
 
 // Grid setup
 $number-of-columns:			12 !default;
-$gutter-width:					18px !default;
+$gutter-width:					20px !default;
 
 // Map screen sizes
 $bp-namespace-obj: (
@@ -13,5 +13,3 @@ $bp-namespace-obj: (
 	(lg, 1200px)
 ) !default;
 
-$half-gutter: 0.5rem;
-$half-gutter-adjustment: -$half-gutter;

@@ -81,7 +81,17 @@ border-radius: 1px 1px 3px #000;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   margin-left: -9px;
-  margin-right: -9px; }
+  margin-right: -9px;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-align: stretch;
+  -webkit-align-items: stretch;
+  -ms-flex-align: stretch;
+  align-items: stretch; }
   .row:after {
     content: "";
     display: table; }
@@ -92,15 +102,7 @@ border-radius: 1px 1px 3px #000;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -webkit-flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap; }
+  display: flex; }
 .flexwrap .col {
   display: -webkit-box;
   display: -webkit-flex;
@@ -114,8 +116,6 @@ border-radius: 1px 1px 3px #000;
   box-sizing: border-box;
   float: left;
   *zoom: 1;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
@@ -125,7 +125,11 @@ border-radius: 1px 1px 3px #000;
   flex-grow: 0;
   -webkit-flex-shrink: 0;
   -ms-flex-negative: 0;
-  flex-shrink: 0; }
+  flex-shrink: 0;
+  -webkit-box-align: stretch;
+  -webkit-align-items: stretch;
+  -ms-flex-align: stretch;
+  align-items: stretch; }
   .col:after {
     content: "";
     display: table; }
@@ -140,8 +144,6 @@ border-radius: 1px 1px 3px #000;
   box-sizing: border-box;
   float: left;
   *zoom: 1;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
@@ -152,6 +154,10 @@ border-radius: 1px 1px 3px #000;
   -webkit-flex-shrink: 0;
   -ms-flex-negative: 0;
   flex-shrink: 0;
+  -webkit-box-align: stretch;
+  -webkit-align-items: stretch;
+  -ms-flex-align: stretch;
+  align-items: stretch;
   display: table-cell;
   -webkit-box-flex: 1;
   -webkit-flex-grow: 1;
@@ -292,8 +298,6 @@ border-radius: 1px 1px 3px #000;
     box-sizing: border-box;
     float: left;
     *zoom: 1;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
     -webkit-flex-direction: column;
     -ms-flex-direction: column;
     flex-direction: column;
@@ -304,6 +308,10 @@ border-radius: 1px 1px 3px #000;
     -webkit-flex-shrink: 0;
     -ms-flex-negative: 0;
     flex-shrink: 0;
+    -webkit-box-align: stretch;
+    -webkit-align-items: stretch;
+    -ms-flex-align: stretch;
+    align-items: stretch;
     display: table-cell;
     -webkit-box-flex: 1;
     -webkit-flex-grow: 1;
@@ -443,8 +451,6 @@ border-radius: 1px 1px 3px #000;
     box-sizing: border-box;
     float: left;
     *zoom: 1;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
     -webkit-flex-direction: column;
     -ms-flex-direction: column;
     flex-direction: column;
@@ -455,6 +461,10 @@ border-radius: 1px 1px 3px #000;
     -webkit-flex-shrink: 0;
     -ms-flex-negative: 0;
     flex-shrink: 0;
+    -webkit-box-align: stretch;
+    -webkit-align-items: stretch;
+    -ms-flex-align: stretch;
+    align-items: stretch;
     display: table-cell;
     -webkit-box-flex: 1;
     -webkit-flex-grow: 1;
@@ -594,8 +604,6 @@ border-radius: 1px 1px 3px #000;
     box-sizing: border-box;
     float: left;
     *zoom: 1;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
     -webkit-flex-direction: column;
     -ms-flex-direction: column;
     flex-direction: column;
@@ -606,6 +614,10 @@ border-radius: 1px 1px 3px #000;
     -webkit-flex-shrink: 0;
     -ms-flex-negative: 0;
     flex-shrink: 0;
+    -webkit-box-align: stretch;
+    -webkit-align-items: stretch;
+    -ms-flex-align: stretch;
+    align-items: stretch;
     display: table-cell;
     -webkit-box-flex: 1;
     -webkit-flex-grow: 1;
@@ -796,7 +808,7 @@ code {
   margin-left: auto;
   margin-right: auto;
   max-width: 1000px;
-  width: 85%; }
+  width: 100%; }
 
 .spacing {
   padding-top: 16px;

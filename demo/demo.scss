@@ -75,7 +75,9 @@ code {
 .container {
 	@include horizontal-margin(auto);
 	max-width: 1000px;
-	width: 85%;
+	// include explicit 100% width, otherwise inner flex items don't
+	// automatically take up all horizontal space
+	width: 100%;
 }
 
 .spacing {
