@@ -92,7 +92,12 @@ module.exports = function ( grunt ) {
 		watch: {
 			sass: {
 				files: ['<%= paths.src %>**/*.scss'],
-				tasks: ['sass:compile', 'copy']
+				tasks: ['sass:compile']
+			},
+			
+			demo: {
+				files: ['<%= paths.demo %>*.scss'],
+				tasks: ['sass:demo']
 			}
 		}
 	});
