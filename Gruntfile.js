@@ -27,9 +27,16 @@ module.exports = function ( grunt ) {
 
 		version: {
 			project: {
-				src: ['package.json', 'demo/index.html']
+				src: ['package.json']
 			},
 
+			html: {
+				options: {
+					// @version X.X.X
+					prefix: '@version\\s*'
+				},
+				src: ['<%= paths.demo %>*.html']
+			},
 			scss: {
 				options: {
 					// @version X.X.X
