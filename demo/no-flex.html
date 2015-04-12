@@ -24,7 +24,7 @@
 			</aside>
 
 			<main id="main" class="col col-xs-12 col-sm-9">
-				
+
 				<header class="row row--space header">
 					<div class="col col-xs-12 col-sm-5 rflx-logo">
 						<h1>Reflex.gs</h1>
@@ -33,12 +33,12 @@
 						<h4>Advanced, highly customizable, cross-browser, responsive grid system, supercharged with flexbox.</h4>
 					</div>
 				</header>
-				
+
 				<h1>NO-Flex version</h1>
 				<p>This is the no-flexbox version of Reflex.gs. It provides an excellent base grid, supporting IE8+.</p>
 
 				<p><a href="index.html">&larr; Back to the main demo</a></p>
-				
+
 				<p>Complete, flexible, responsive, do-what-you-want, sass grid implementation using flexbox &amp; scss. This demo requires <a href="http://caniuse.com/#feat=flexbox">flexbox support</a>.</p>
 				<p><mark>NEW!</mark> Reflex supports float columns. What that actually translates to is that the default layout runs on floats. Modernizr adds a class to the html, and this class enables <code>flex</code> on rows and columns. You can specify a bunch of flex properties, but they won't be effective unless you specify <code>display: flex</code>. This is what we're doing with Modernizr.</p>
 
@@ -221,7 +221,6 @@
 
 				<hr>
 
-
 				<div class="row">
 
 					<div class="col col-xs-12">
@@ -341,6 +340,27 @@
 
 				<hr />
 
+				<div class="row">
+
+					<div class="col-xs-12">
+						<h2>Intelligent Columns</h2>
+
+						<p>Let the flex columns take up all the required space.</p>
+					</div>
+
+					<div class="col col-xs">
+						<div class="item">col-xs (smart)</div>
+					</div>
+					<div class="col col-xs-6">
+						<div class="item">col-xs-6 (fixed)</div>
+					</div>
+					<div class="col col-xs">
+						<div class="item">col-xs (smart)</div>
+					</div>
+				</div>
+
+				<hr />
+
 				<h2>Even Heights</h2>
 
 				<p>Flex columns will have even heights - neat!</p>
@@ -350,8 +370,9 @@
 						<h3>Super columns</h3>
 						<p>Columns with flex have even heights!</p>
 					</div>
-					<div class="col col-xs-6 bg--red flex-center-v" style="height: 300px;">
-						<p>I am <code>height: 300px;</code> (and my neighbor is too!).</p>
+					<div class="col col-xs-6 bg--red flex-center-v text-center" style="height: 300px;">
+						<p>I am <code>height: 300px;</code> </p>
+						<small>(and my flex neighbor should be too!).</small>
 					</div>
 				</div>
 
