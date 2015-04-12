@@ -41,11 +41,11 @@ To push a new version, run `grunt version::patch` (x.y.**Z**), `grunt version::m
 
 ### Notes:
 
-- Use of mixins to include all the vendor prefixes you will need! **Keep in mind** however that many browsers that support `display: flex` don't support wrapping (the `flex-wrap` property). In other words, your grid is not responsive in those browsers! Rows span wider than the screen and don't wrap as floating columns do. There is an alternative approach to use flexbox as an enhancement - check out the [demo](demo/no-flex.html).
+- Use of mixins to include all the vendor prefixes you will need! **Keep in mind** however that many browsers that support `display: flex` don't support wrapping (the `flex-wrap` property). In other words, your grid is not responsive in those browsers! Rows span wider than the screen and don't wrap as floating columns do. There is an alternative approach to use flexbox as an enhancement - check out the [demo](http://loup-brun.github.io/reflex.css/demo/no-flex.html).
 - Heavy use of sometimes not often used Sass @ directives, be sure and consult the [Sass docs](http://sass-lang.com/documentation/file.SASS_REFERENCE.html) if something looks foreign.
 
 
 ### Coming Up:
 
 - Do a better demo page
-- ~~Implement this project as an enhancement of a regular float grid~~ - [YO, check it out!](demo/no-flex.html)
+- ~~Implement this project as an enhancement of a regular float grid~~ - [YO, check it out!](http://loup-brun.github.io/reflex.css/demo/no-flex.html)
