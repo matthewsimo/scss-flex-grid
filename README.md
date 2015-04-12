@@ -39,14 +39,13 @@ When you're ready, you can run `grunt dist` to build the minified `css` output.
 
 To push a new version, run `grunt version::patch` (x.y.**Z**), `grunt version::minor` (x.**Y**.z) or `grunt version::major` (**X**.y.z). This updates your `package.json` file as well as the version included in the stylesheet header.
 
-### Coming Up:
-
-- ~~Plan on doing a proper demo. Stay tuned.~~ [Demo here](http://matthewsimo.github.io/scss-flex-grid/)
-- ~~I want to abstract out the namespaces into proper variables so that people can easily create whatever breakpoints they might need.~~ Namespace overriding possible now, huzzah!
-- Dunno, considering ideas. -----> That's where I'm at!
-
 ### Notes:
 
 - Use of mixins to include all the vendor prefixes you will need! **Keep in mind** however that many browsers that support `display: flex` don't support wrapping (the `flex-wrap` property). In other words, your grid is not responsive in those browsers! Rows span wider than the screen and don't wrap as floating columns do. There is an alternative approach to use flexbox as an enhancement - will be online soon.
 - Heavy use of sometimes not often used Sass @ directives, be sure and consult the [Sass docs](http://sass-lang.com/documentation/file.SASS_REFERENCE.html) if something looks foreign.
 
+
+### Coming Up:
+
+- Do a better demo page
+- Implement this project as an enhancement of a regular float grid
