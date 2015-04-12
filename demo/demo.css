@@ -2,7 +2,7 @@
  * REFLEX
  * 
  * Supercharge your grid with flexbox
- * @version 0.1.0
+ * @version 0.2.0
  * @author Matthew Simo
  * @author Louis-Olivier Brassard 'loup-brun'
  */
@@ -719,7 +719,7 @@ hr {
   border: none;
   border-top: 1px solid DarkSlateBlue;
   height: 1px;
-  margin: 1rem 0; }
+  margin: 16px 0; }
 
 code {
   background: floralwhite;
@@ -728,14 +728,14 @@ code {
   padding: 2px 3px; }
 
 .row, #wrapper {
-  margin-top: 1rem; }
+  margin-top: 16px; }
 
 .item {
   background-color: CornflowerBlue;
   border-radius: 2px;
   display: block;
-  height: 2rem;
-  margin-bottom: 1rem;
+  height: 32px;
+  margin-bottom: 16px;
   width: 100%; }
 
 #wrapper {

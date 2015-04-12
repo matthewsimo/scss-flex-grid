@@ -32,26 +32,28 @@ module.exports = function ( grunt ) {
 
 			scss: {
 				options: {
-					// @version: X.X.X
-					prefix: '@version:\\s*'
+					// @version X.X.X
+					prefix: '@version\\s*'
 				},
 				src: ['<%= paths.src %>*.scss']
 			}
 		},
 
 		// Copy the distribution files to some other directory
+		/*
 		copy: {
 			main: {
 				files: [
 					{
 						expand: true,
 						flatten: true,
-						//src: ['<%= paths.dist %>*.css'],
-						//dest: './'
+						src: ['<%= paths.dist %>*.css'],
+						dest: './'
 					}
 				]
 			}
 		},
+		*/
 
 		sass: {
 			// compile different stylesheets to be loaded async
@@ -106,7 +108,7 @@ module.exports = function ( grunt ) {
 	grunt.registerTask(
 		'dist',
 		'Compile files ready for production',
-		['version', 'sass:dist', 'copy']
+		['version', 'sass:dist']
 	);
 
 	grunt.registerTask(
