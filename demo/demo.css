@@ -752,7 +752,7 @@ border-radius: 1px 1px 3px #000;
   -moz-box-sizing: border-box;
   box-sizing: border-box; }
 
-html {
+body {
   background: GhostWhite;
   color: DarkSlateBlue;
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;

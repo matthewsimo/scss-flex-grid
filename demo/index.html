@@ -42,16 +42,14 @@
 				<div class="row">
 					<div class="col col-xs-12">
 						<h2>Usage</h2>
-						<p>Just <code>@import</code> the <code>_flexgrid.scss</code> file as a partial or rename <code>_flexgrid.scss</code> &rarr; <code>flexgrid.scss</code> if you'd prefer it to be compiled independently. <a href="https://github.com/loup-brun/reflex.gs/archive/master.zip">Download flex grid</a></p>
+						<p>Just <code>@import</code> the <code>_flexgrid.scss</code> file as a partial or rename <code>_flexgrid.scss</code> &rarr; <code>flexgrid.scss</code> if you'd prefer it to be compiled independently. <a href="https://github.com/loup-brun/reflex.gs/archive/master.zip">Download Reflex.gs</a></p>
 					</div>
 				</div>
-
-				<hr>
 
 				<div class="row">
 
 					<div class="col col-xs-12">
-						<h2>Class Reference</h2>
+						<h3>Class Reference</h3>
 						<ul>
 							<li><code>.row</code>: Flex box container, use this to wrap columns.</li>
 							<li><code>.col col-(namespace)</code>: This creates a column that will grow/shrink depending on available space in the defined namespace.</li>
@@ -60,6 +58,18 @@
 						</ul>
 						<p>Default valid namespaces are <code>xs</code>, <code>sm</code>, <code>md</code>, <code>lg</code>. The <code>xs</code> namespace is default and uses no media queries. Learn how to <a href="#overriding-namespaces">override namespaces</a>.</p>
 					</div>
+				</div>
+
+				<div class="row">
+					<div class="col col-xs-12">
+						<h3 id="overriding-namespaces">Overriding Namespaces</h3>
+
+						<p>Configuration may be achieved by changing the values in the <code>_rflx.variables.scss</code> file. Reflex.gs declares a variable <code>$bp-namespace-obj</code>. This variable defines the <strong>breakpoints</strong> that you'd like to set and their associated namespaces.</p>
+						<p>Default:</p>
+						<pre>$bp-namespace-obj: ( <br />  (xs),<br />  (sm, 768px),<br />  (md, 992px),<br />  (lg, 1200px) <br/>);</pre>
+						<p>You can add your own namespaces and breakpoints, the grid can accept as many as you give it. Reflex.gs is built from a mobile first approach, meaning you should always keep your base namespace first, this will ensure that the others cascade over it correctly.</p>
+					</div>
+
 				</div>
 
 				<hr>
@@ -219,7 +229,7 @@
 				<div class="row">
 
 					<div class="col col-xs-12">
-						<h2>Responsitivity By Combining Namespaces Demo</h2>
+						<h2>Responsivity By Combining Namespaces Demo</h2>
 						<p>Drag browser around to test responsive breakpoints.</p>
 					</div>
 
@@ -337,7 +347,7 @@
 
 				<div class="row">
 
-					<div class="col-xs-12">
+					<div class="col col-xs-12">
 						<h2>Intelligent Columns</h2>
 
 						<p>Let the flex columns take up all the required space.</p>
@@ -356,11 +366,14 @@
 
 				<hr />
 
-				<h2>Even Heights</h2>
+				<div class="row">
 
-				<p>Flex columns will have even heights - neat!</p>
+					<div class="col col-xs-12">
+						<h2>Even Heights</h2>
 
-				<div class="row row--space">
+						<p>Flex columns will have even heights - neat!</p>
+					</div>
+
 					<div class="col col-xs-6 bg--blue flex-center-v text-center">
 						<h3>Super columns</h3>
 						<p>Columns with flex have even heights!</p>
@@ -376,9 +389,14 @@
 
 				<hr />
 
-				<h2>Nesting</h2>
+				<div class="row">
 
-				<p>Reflex.gs supports grid nesting.</p>
+					<div class="col col-xs-12">
+						<h2>Nesting</h2>
+
+						<p>Reflex.gs supports grid nesting.</p>
+					</div>
+				</div>
 
 				<div class="row row--space">
 					<div class="col col-xs-6 bg--blue flex-center-v text-center">
@@ -426,20 +444,6 @@
 							</div>
 						</div>
 					</div>
-				</div>
-
-				<hr>
-
-				<div class="row">
-					<div class="col col-xs-12">
-						<h2 id="overriding-namespaces">Overriding Namespaces</h2>
-
-						<p>Configuration may be achieved by changing the values in the <code>_rflx.variables.scss</code> file. Reflex.gs declares a variable <code>$bp-namespace-obj</code>. This variable defines the <strong>breakpoints</strong> that you'd like to set and their associated namespaces.</p>
-						<p>Default:</p>
-						<pre>$bp-namespace-obj: ( <br />  (xs),<br />  (sm, 769px),<br />  (md, 992px),<br />  (lg, 1200px) <br/>);</pre>
-						<p>You can add your own namespaces and breakpoints, the grid can accept as many as you give it. Flex grid is built from a mobile first approach, meaning you should always keep your base namespace first, this will ensure that the others cascade over it correctly.</p>
-					</div>
-
 				</div>
 
 				<hr>
