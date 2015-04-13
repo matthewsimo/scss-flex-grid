@@ -289,7 +289,7 @@ border-radius: 1px 1px 3px #000;
 .off-xs-11 {
   margin-left: 91.667%; }
 
-@media only screen and (min-width: 769px) {
+@media only screen and (min-width: 768px) {
   .col-sm {
     max-width: 100%;
     padding-left: 10px;
@@ -752,13 +752,16 @@ border-radius: 1px 1px 3px #000;
   -moz-box-sizing: border-box;
   box-sizing: border-box; }
 
+aside, figure, figcaption, footer, header, main, section {
+  display: block; }
+
 body {
   background: GhostWhite;
   color: DarkSlateBlue;
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   font-size: 100%;
   font-weight: 300;
-  line-height: 1.3; }
+  line-height: 1.4; }
 
 .rflx-logo {
   padding: 16px;
@@ -770,10 +773,10 @@ body {
     margin: 0; }
 
 a {
-  color: DarkSlateBlue;
+  color: cornflowerblue;
   transition: color 0.2s ease-in-out; }
   a:hover {
-    color: Tomato; }
+    color: tomato; }
 
 h1, h2, h3, h4, h5, h6 {
   margin: 0 0 .5em; }
@@ -790,20 +793,21 @@ small {
 
 hr {
   border: none;
-  border-top: 1px solid DarkSlateBlue;
+  border-top: 1px solid gainsboro;
   height: 1px;
   margin: 16px 0; }
-
-pre {
-  word-wrap: break-word;
-  white-space: pre-wrap;
-  text-align: left; }
 
 pre, code {
   background: floralwhite;
   border: 1px solid gainsboro;
   border-radius: 2px;
   padding: 2px 3px; }
+
+pre {
+  word-wrap: break-word;
+  white-space: pre-wrap;
+  text-align: left;
+  padding: 5px; }
 
 .text-center {
   text-align: center; }
