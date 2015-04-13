@@ -3,28 +3,58 @@ Reflex.gs
 
 Advanced, highly customizable, cross-browser, responsive grid system, supercharged with flexbox.
 
-### Features:
 
-- Responsive, mobile first approach
-- Progressive enhancement: a default grid with floats is provided, and browsers with specific support get a flex grid
-- Define specific colum size or use a flex column (a column that grows to fill space)
-- Define offset to push column a specific number of columns
-- Define your own grid - 8, 12, 16, 24... you chose!
+## Overview
 
-### Usage:
+Reflex.gs is built following the principle of _progressive enhancement_. It is actually a solid grid implementation that upgrades to flex if the browser has specific support View the demo [here](http://loup-brun.github.io/reflex.gs/demo/no-flex.html)
 
-Go to the `src/` directory and grab the `_rflx.grid.scss` file. You'll also have to include the contents of `_rflx.variables.scss` and `_rflx.mixins.scss`, which you would usually have in your own project partials.
+### How it works
 
-You could start your project from scratch using the suggested file structure: `main.scss` in the `src/` directory is ready to go.
+The default layout runs on floats. [Modernizr](http://modernizr.com/) (an awesome feature detection library) adds a class to the `html`, which enables `flex` on rows and columns. You can specify a bunch of flex-related properties, but they won't be effective unless you specify `display: flex` on the element. This is what we're doing with Modernizr.
 
-### Reference:
+If you had a look at the code, you might notice that we're not targeting flexbox support directly (we're testing against the support for `flex-wrap` instead). Indeed, browser support is, at the moment, [pretty good](http://caniuse.com/#feat=flexbox). However, if you have a closer look at the support details, you'll notice that a great deal of browsers actually supporting the `display: flex` property _don't_ support wrapping. This means that unlike floats, your columns will not be pushed down if their total width exceeds that of the container &mdash; they will overflow the container.
 
-- `.row`: Flex box container, use this to wrap columns.
-- `.col-(namespace)`: This creates a column that will grow/shrink depending on available space in the defined namespace.
-- `.col-(namespace)-(number)`: This creates a column that span the specific number of columns in the defined namespace. Valid numbers are 1-12.
-- `.off-(namespace)-(number)`: This will offset a column by a specific number of columns in the defined namespace. Valid numbers are 1-11.
+## Features
 
-Valid namespaces are `xs`, `sm`, `md`, `lg`. The `xs` namespace is default and uses no media queries.
+- Built on <a href="http://sass-lang.com">sass</a>
+- Responsive, mobile-first approach
+- Ultra customizable (see the usage section below for more information)
+- Packaged with sass mixins for the flex properties, containing all the correct vendor prefixes (including prefixes for the [old spec](https://css-tricks.com/old-flexbox-and-new-flexbox/))
+- Includes offsets
+- Flex columns (smart columns that take up the remaining space)
+- Supports IE8+ (basic grid) and all major browsers (Chrome, FF, Opera, Safari)
+
+## Usage
+
+Check the source code (under `src/`) and treat your own project as the `main.scss` file. Or, you can drop in the compiled css found in the `dist/` directory. [Download Reflex.gs](https://github.com/loup-brun/reflex.gs/archive/master.zip)
+
+### Class Reference
+	
+- `.row`: flex container, must be used wrap columns (also has the clearfix for floating columns).
+- `.col col-{namespace}`: this creates a column that will grow/shrink depending on available space in the defined namespace (flex-only supported feature).
+- `.col col-{namespace}-{number}`: this creates a column that span the specific number of columns in the defined namespace. Valid numbers are (e.g.) 1-12.
+- `.off-{namespace}-{number}`: this will offset a column by a specific number of columns in the defined namespace. Valid numbers are (e.g.) 1-11.
+
+Default valid namespaces are `xs`, `sm`, `md`, `lg`. The `xs` namespace is default and uses no media queries. Learn how to <a href="#overriding-namespaces">override namespaces</a>.
+
+### Overriding Namespaces &amp; Variables
+
+Configuration may be achieved by changing the values in the `_rflx.variables.scss` file. Reflex.gs declares a variable `$bp-namespace-obj` (a <a href="http://sass-lang.com/documentation/file.SASS_REFERENCE.html#maps">sass map</a>). This variable defines the _breakpoints_ that you'd like to set and their associated namespaces.
+					
+Default configuration:
+					
+```scss
+// `_rflx.variables.scss`
+$number-of-columns: 12;
+$gutter-width: 20px;
+$bp-namespace-obj: (
+  (xs),
+  (sm, 768px),
+  (md, 992px),
+  (lg, 1200px)
+);
+```
+You can add your own namespaces and breakpoints, the grid can accept as many as you give it. Reflex.gs is built from a mobile first approach, meaning you should always keep your base namespace first, this will ensure that the others cascade over it correctly.
 
 ### Compiling
 
