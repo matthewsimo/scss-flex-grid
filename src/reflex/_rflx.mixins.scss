@@ -84,8 +84,12 @@ border-radius: 1px 1px 3px #000;
 	&:after {
 		content: "";
 		display: table;
-		
+			
 		clear: both;
+		// In Chrome, the :after pseudo-element comes before any
+		// re-ordered element, which breaks the layout.
+		// Make sure this element comes last
+		@include order(99);
 	}
 }
 
