@@ -35,14 +35,14 @@ Check the source code (under `src/`) and treat your own project as the `main.scs
 - `.col col-{namespace}-{number}`: this creates a column that span the specific number of columns in the defined namespace. Valid numbers are (e.g.) 1-12.
 - `.off-{namespace}-{number}`: this will offset a column by a specific number of columns in the defined namespace. Valid numbers are (e.g.) 1-11.
 
-Default valid namespaces are `xs`, `sm`, `md`, `lg`. The `xs` namespace is default and uses no media queries. Learn how to <a href="#overriding-namespaces">override namespaces</a>.
+Default valid namespaces are `xs`, `sm`, `md`, `lg`. The `xs` namespace is default and uses no media queries. Learn how to [override namespaces](#overriding-namespaces).
 
 ### Overriding Namespaces &amp; Variables
 
-Configuration may be achieved by changing the values in the `_rflx.variables.scss` file. Reflex.gs declares a variable `$bp-namespace-obj` (a <a href="http://sass-lang.com/documentation/file.SASS_REFERENCE.html#maps">sass map</a>). This variable defines the _breakpoints_ that you'd like to set and their associated namespaces.
-					
+Configuration may be achieved by changing the values in the `_rflx.variables.scss` file. Reflex.gs declares a variable `$bp-namespace-obj` (a [sass map](http://sass-lang.com/documentation/file.SASS_REFERENCE.html#maps)). This variable defines the _breakpoints_ that you'd like to set and their associated namespaces.
+
 Default configuration:
-					
+
 ```scss
 // `_rflx.variables.scss`
 $number-of-columns: 12;
