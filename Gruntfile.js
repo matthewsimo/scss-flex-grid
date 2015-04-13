@@ -121,7 +121,7 @@ module.exports = function ( grunt ) {
 	grunt.registerTask(
 		'dist',
 		'Compile files ready for production',
-		['version', 'sass:dist']
+		['version', 'sass:dist', 'sass:demo']
 	);
 
 	grunt.registerTask(
