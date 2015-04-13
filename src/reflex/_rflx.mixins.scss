@@ -84,8 +84,7 @@ border-radius: 1px 1px 3px #000;
 	&:after {
 		content: "";
 		display: table;
-	}
-	&:after {
+		
 		clear: both;
 	}
 }
@@ -145,6 +144,13 @@ border-radius: 1px 1px 3px #000;
 	-webkit-justify-content: $param;
 	-ms-flex-pack: $param;
 	justify-content: $param;
+}
+
+@mixin order($param) {
+	-webkit-box-ordinal-group: $param;
+	-webkit-order: $param;
+	-ms-flex-order: $param;
+	order: $param;
 }
 
 

@@ -1,6 +1,6 @@
 {
 	"name": "reflex.gs",
-	"version": "0.3.0",
+	"version": "0.3.2",
 	"description": "Advanced, highly customizable, cross-browser, responsive grid system, supercharged with flexbox.",
 	"main": "index.js",
 	"scripts": {
