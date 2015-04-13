@@ -87,6 +87,9 @@ module.exports = function ( grunt ) {
 			demo: {
 				files: {
 					'<%= paths.demo %>demo.css': '<%= paths.demo %>demo.scss'	
+				},
+				options: {
+					style: 'compressed'
 				}
 			},
 			
@@ -103,7 +106,7 @@ module.exports = function ( grunt ) {
 			},
 			
 			demo: {
-				files: ['<%= paths.demo %>*.scss'],
+				files: ['<%= paths.demo %>*.scss', '<%= paths.src %>**/*.scss'],
 				tasks: ['sass:demo']
 			}
 		}
