@@ -16,7 +16,7 @@ If you had a look at the code, you might notice that we're not targeting flexbox
 
 ## Features
 
-- Built on <a href="http://sass-lang.com">sass</a>
+- Built on [sass](http://sass-lang.com)
 - Responsive, mobile-first approach
 - Ultra customizable (see the usage section below for more information)
 - Packaged with sass mixins for the flex properties, containing all the correct vendor prefixes (including prefixes for the [old spec](https://css-tricks.com/old-flexbox-and-new-flexbox/))
