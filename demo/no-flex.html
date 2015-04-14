@@ -9,9 +9,11 @@
 		<link rel="stylesheet" type="text/css" href="demo.css" />
 		<link rel="icon" type="image/png" href="favicon.png" />
 		<script src="modernizr.custom.33952.js"></script>
-		
+
 		<script>
-			document.className = document.className.replace('flexwrap', '').replace('flexbox', '');
+			window.onload = function() {
+				document.documentElement.className = document.documentElement.className.replace('flexwrap', '').replace('flexbox', '');
+			};
 		</script>
 	</head>
 	<body>
@@ -57,7 +59,7 @@
 
 
 					<h3>How it works</h3>
-					
+
 					<p> The default layout runs on floats. <a href="http://modernizr.com/">Modernizr</a> (an awesome feature detection library) adds a class to the <code>html</code>, which enables <code>flex</code> on rows and columns. You can specify a bunch of flex-related properties, but they won't be effective unless you specify <code>display: flex</code> on the element. This is what we're doing with Modernizr.</p>
 
 
@@ -88,11 +90,11 @@
 				<section id="usage">
 
 					<h2>Usage</h2>
-					
+
 					<p>Check the source code (under <code>src/</code>) and treat your own project as the <code>main.scss</code> file. Or, you can drop in the compiled css found in the <code>dist/</code> directory. <a href="https://github.com/loup-brun/reflex.gs/archive/master.zip">Download Reflex.gs</a></p>
 
 					<h3>Class Reference</h3>
-	
+
 					<ul>
 						<li><code>.row</code>: flex container, must be used wrap columns (also has the clearfix for floating columns).</li>
 						<li><code>.col col-{namespace}</code>: this creates a column that will grow/shrink depending on available space in the defined namespace (flex-only supported feature).</li>
@@ -106,11 +108,11 @@
 					<h3 id="overriding-namespaces">Overriding Namespaces &amp; Variables</h3>
 
 					<p>Configuration may be achieved by changing the values in the <code>_rflx.variables.scss</code> file. Reflex.gs declares a variable <code>$bp-namespace-obj</code> (a <a href="http://sass-lang.com/documentation/file.SASS_REFERENCE.html#maps">sass map</a>). This variable defines the <em>breakpoints</em> that you'd like to set and their associated namespaces.</p>
-					
+
 					<p>Default configuration:</p>
-					
+
 					<pre>/* _rflx.variables.scss */<br /><br />$number-of-columns: 12;<br />$gutter-width: 20px;<br /><br />$bp-namespace-obj: ( <br />  (xs),<br />  (sm, 768px),<br />  (md, 992px),<br />  (lg, 1200px) <br/>);</pre>
-				
+
 					<p>You can add your own namespaces and breakpoints, the grid can accept as many as you give it. Reflex.gs is built from a mobile first approach, meaning you should always keep your base namespace first, this will ensure that the others cascade over it correctly.</p>
 
 				</section>
@@ -415,10 +417,10 @@
 
 				<section id="even-heights">
 
-						<h2>Even Heights</h2>
+					<h2>Even Heights</h2>
 
-						<p>Flex columns will have even heights - neat!</p>
-					
+					<p>Flex columns will have even heights - neat!</p>
+
 					<div class="row">
 
 						<div class="col col-xs-6 bg--blue flex-center-v text-center">
@@ -431,8 +433,8 @@
 						</div>
 					</div>
 
-				<p>Psst! With flexbox, you can easily vertically center content! just add a class:</p>
-				<pre>.flex-center-v {<br />  @include justify-content(center);<br />}</pre>
+					<p>Psst! With flexbox, you can easily vertically center content! just add a class:</p>
+					<pre>.flex-center-v {<br />  @include justify-content(center);<br />}</pre>
 
 				</section>
 
@@ -440,9 +442,9 @@
 
 				<section id="nesting">
 
-						<h2>Nesting</h2>
+					<h2>Nesting</h2>
 
-						<p>Reflex.gs supports grid nesting.</p>
+					<p>Reflex.gs supports grid nesting.</p>
 
 					<div class="row row--space">
 						<div class="col col-xs-6 bg--blue flex-center-v text-center">
