@@ -66,21 +66,11 @@ module.exports = function ( grunt ) {
 			// compile different stylesheets to be loaded async
 			compile: {
 				files: {
-					'<%= paths.dist %><%= pkg.name %>-<%= pkg.version %>.css': '<%= paths.src %>main.scss'
-				},
-				options: {
-					style: 'expanded', // expanded for dev, compressed for production
-					sourcemap: 'file'
-				}
-			},
-
-			dist: {
-				files: {
-					'<%= paths.dist %><%= pkg.name %>-<%= pkg.version %>.css': '<%= paths.src %>main.scss'
+					'<%= paths.dist %><%= pkg.name %>.css': '<%= paths.src %>main.scss'
 				},
 				options: {
 					style: 'compressed', // expanded for dev, compressed for production
-					sourcemap: 'none'
+					sourcemap: 'file'
 				}
 			},
 
@@ -95,6 +85,12 @@ module.exports = function ( grunt ) {
 			
 			options: {
 				precision: 3
+			}
+		},
+		
+		clean: {
+			dist: {
+				src: ['<%= paths.dist %>']
 			}
 		},
 
@@ -115,13 +111,7 @@ module.exports = function ( grunt ) {
 	grunt.registerTask(
 		'compile',
 		'Compile without minification', 
-		['sass:compile']
-	);
-
-	grunt.registerTask(
-		'dist',
-		'Compile files ready for production',
-		['version', 'sass:dist', 'sass:demo']
+		['clean:dist', 'version', 'sass:compile', 'sass:demo']
 	);
 
 	grunt.registerTask(
