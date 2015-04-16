@@ -1,0 +1,82 @@
+/**
+ * REFLEX
+ * 
+ * Supercharge your grid with flexbox
+ * @version 0.1.0
+ * @author Matthew Simo
+ * @author Louis-Olivier Brassard 'loup-brun'
+ */
+
+/**
+ * Break point namespace object
+ *
+ * Set the default namespace object with these defaults with the 
+ * understanding that you can pass in whatever you might require for your site.
+ *
+ * $bp-namespace-obj is a Sass list with nested lists inside. Each sub list defines two things. 
+ * 1. The namespace for that breakpoint. (Required) (i.e. xs, sm, md, lg)
+ * 2. The min-width measurement for the breakpoint for that namespace. (i.e. 48em, 62em, 75em)
+ *
+ * Note: These should be in the proper order (at least till libsass handles map keys properly).
+ * 
+ * Note: If the measurement is left out then it will be skipped when generating 
+ * the grid and applied to global styles.
+ *
+ */
+
+
+// Row wrapper class, flex box parent.
+
+.row {
+	@include clearfix;
+	@include box-sizing(border-box);
+	@include horizontal-margin(-$gutter-width / 2);
+	@include flex-direction(row);
+	@include flex-wrap(wrap);
+	@include align-items(stretch);
+
+}
+
+// Only apply flex if flexwrap is supported
+// Needs a modernizr build 
+.flexwrap {	
+	.row {
+		@include flex;
+	}
+	
+	.col {
+		@include flex;
+	}
+}
+
+// Add .col class to each column
+// This method requires requires the additional .col class on each col,
+// rather than just adding the col-{width} class alone.
+
+// However, if you prefer NOT having to include this extra class
+// on each column, uncomment the @include col in the mixin grid.
+
+.col {
+	@include col;
+}
+
+// Generate the actual grid for each namespace in the $bp-namespace-obj.
+
+@each $val in $bp-namespace-obj {
+
+	// First grid (xs)
+	@if length($val) == 1 {
+
+		$namespace: nth($val, 1);
+		@include grid($namespace);
+
+	} @else {
+
+		$namespace: nth($val, 1);
+		$size: nth($val, 2);
+
+		@media only screen and (min-width: #{$size}) {
+			@include grid($namespace);
+		}
+	}
+}

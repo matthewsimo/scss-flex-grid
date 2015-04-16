@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html class="no-js">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>No Flex - Reflex</title>
+		<meta name="description" content="Advanced, highly customizable, cross-browser, responsive grid system, supercharged with flexbox.">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" type="text/css" href="demo.css" />
+		<link rel="icon" type="image/png" href="favicon.png" />
+		<script src="modernizr.custom.33952.js"></script>
+
+		<script>
+			window.onload = function() {
+				document.documentElement.className = document.documentElement.className.replace('flexwrap', '').replace('flexbox', '');
+			};
+		</script>
+	</head>
+	<body>
+
+		<div id="wrapper" class="container row">
+			<aside id="sidebar" class="col col-xs-12 col-sm-3">
+				<h2>Info</h2>
+				<h4>Maintainer: <a href="https://github.com/loup-brun/">@loup-brun</a> Louis-Olivier Brassard</h4>
+				<small>@version 0.3.3</small>
+				<small><a href="https://github.com/loup-brun/reflex.gs">Project on GitHub</a></small>
+				<small><a href="https://github.com/loup-brun/reflex.gs/issues">Find a bug?</a></small>
+				<small><a href="https://github.com/loup-brun/reflex.gs/archive/master.zip">Download</a></small>
+				<hr>
+				<small>This project is a fork of <a href="https://twitter.com/matthewsimo">@matthewsimo</a>'s <a href="https://github.com/matthewsimo/scss-flex-grid">css-flex-grid</a></small>
+			</aside>
+
+			<main id="main" class="col col-xs-12 col-sm-9">
+
+				<header class="row row--space header">
+					<div class="col col-xs-12 col-sm-5 rflx-logo">
+						<h1>Reflex.gs</h1>
+					</div>
+					<div class="col col-xs-12 col-sm-7 flex-center-v">
+						<h4>Advanced, highly customizable, cross-browser, responsive grid system, supercharged with flexbox.</h4>
+					</div>
+				</header>
+
+				<h1>NO-Flex version</h1>
+				<p>This is the no-flexbox version of Reflex.gs. It provides an excellent base grid, supporting IE8+.</p>
+
+				<p><a href="index.html">&larr; Back to the main demo</a></p>
+
+				<p>Complete, flexible, responsive, do-what-you-want, sass grid implementation using flexbox &amp; scss. <strike>This demo requires <a href="http://caniuse.com/#feat=flexbox">flexbox support</a></strike>.</p>
+
+				<hr>
+
+				<section id="overview">
+
+					<h2>Overview</h2>
+
+					<p>Reflex.gs is built following the principle of <em>progressive enhancement</em>. It is actually a solid grid implementation that upgrades to flex if the browser has specific support. You can check out the same demo without flex <a href="no-flex.html" title="No-Flex Example">here</a>.</p>
+
+
+					<h3>How it works</h3>
+
+					<p> The default layout runs on floats. <a href="http://modernizr.com/">Modernizr</a> (an awesome feature detection library) adds a class to the <code>html</code>, which enables <code>flex</code> on rows and columns. You can specify a bunch of flex-related properties, but they won't be effective unless you specify <code>display: flex</code> on the element. This is what we're doing with Modernizr.</p>
+
+
+					<p>If you had a look at the code, you might notice that we're not targeting flexbox support directly (we're testing against the support for <code>flex-wrap</code> instead). Indeed, browser support is, at the moment, <a href="http://caniuse.com/#feat=flexbox">pretty good</a>. However, if you have a closer look at the support details, you'll notice that a great deal of browsers actually supporting the <code>display: flex</code> property <em>don't</em> support wrapping. This means that unlike floats, your columns will not be pushed down if their total width exceeds that of the container &mdash; they will overflow the container.</p>
+
+				</section>
+
+				<hr />
+
+				<section id="features" class="row">
+
+					<h2>Features</h2>
+
+					<ul>
+						<li>Built on <a href="http://sass-lang.com">sass</a></li>
+						<li>Responsive, mobile-first approach</li>
+						<li>Ultra customizable (see the <a href="#usage">usage</a> section below for more information)</li>
+						<li>Packaged with sass mixins for the flex properties, containing all the correct vendor prefixes (including prefixes for the <a href="https://css-tricks.com/old-flexbox-and-new-flexbox/">old spec</a>)</li>
+						<li>Includes <a href="#columns-offsets-demo">offsets</a></li>
+						<li>Flex columns (smart columns that take up the remaining space)</li>
+						<li>Supports IE8+ (basic grid) and all major browsers (Chrome, FF, Opera, Safari)</li>
+					</ul>
+
+				</section>
+
+				<hr>
+
+				<section id="usage">
+
+					<h2>Usage</h2>
+
+					<p>Check the source code (under <code>src/</code>) and treat your own project as the <code>main.scss</code> file. Or, you can drop in the compiled css found in the <code>dist/</code> directory. <a href="https://github.com/loup-brun/reflex.gs/archive/master.zip">Download Reflex.gs</a></p>
+
+					<h3>Class Reference</h3>
+
+					<ul>
+						<li><code>.row</code>: flex container, must be used wrap columns (also has the clearfix for floating columns).</li>
+						<li><code>.col col-{namespace}</code>: this creates a column that will grow/shrink depending on available space in the defined namespace (flex-only supported feature).</li>
+						<li><code>.col col-{namespace}-{number}</code>: this creates a column that span the specific number of columns in the defined namespace. Valid numbers are (e.g.) 1-12.</li>
+						<li><code>.off-{namespace}-{number}</code>: this will offset a column by a specific number of columns in the defined namespace. Valid numbers are (e.g.) 1-11.</li>
+					</ul>
+
+					<p>Default valid namespaces are <code>xs</code>, <code>sm</code>, <code>md</code>, <code>lg</code>. The <code>xs</code> namespace is default and uses no media queries. Learn how to <a href="#overriding-namespaces">override namespaces</a>.</p>
+
+
+					<h3 id="overriding-namespaces">Overriding Namespaces &amp; Variables</h3>
+
+					<p>Configuration may be achieved by changing the values in the <code>_rflx.variables.scss</code> file. Reflex.gs declares a variable <code>$bp-namespace-obj</code> (a <a href="http://sass-lang.com/documentation/file.SASS_REFERENCE.html#maps">sass map</a>). This variable defines the <em>breakpoints</em> that you'd like to set and their associated namespaces.</p>
+
+					<p>Default configuration:</p>
+
+					<pre>/* _rflx.variables.scss */<br /><br />$number-of-columns: 12;<br />$gutter-width: 20px;<br /><br />$bp-namespace-obj: ( <br />  (xs),<br />  (sm, 768px),<br />  (md, 992px),<br />  (lg, 1200px) <br/>);</pre>
+
+					<p>You can add your own namespaces and breakpoints, the grid can accept as many as you give it. Reflex.gs is built from a mobile first approach, meaning you should always keep your base namespace first, this will ensure that the others cascade over it correctly.</p>
+
+				</section>
+
+				<hr>
+
+				<section id="columns-demo">
+
+					<h2>Columns Demo</h2>
+
+					<div class="row">
+
+						<div class="col col-xs-12">
+							<div class="item"></div>
+						</div>
+
+						<div class="col col-xs-1">
+							<div class="item"></div>
+						</div>
+						<div class="col col-xs-11">
+							<div class="item"></div>
+						</div>
+
+						<div class="col col-xs-2">
+							<div class="item"></div>
+						</div>
+						<div class="col col-xs-10">
+							<div class="item"></div>
+						</div>
+
+						<div class="col col-xs-3">
+							<div class="item"></div>
+						</div>
+						<div class="col col-xs-9">
+							<div class="item"></div>
+						</div>
+
+						<div class="col col-xs-4">
+							<div class="item"></div>
+						</div>
+						<div class="col col-xs-8">
+							<div class="item"></div>
+						</div>
+
+						<div class="col col-xs-5">
+							<div class="item"></div>
+						</div>
+						<div class="col col-xs-7">
+							<div class="item"></div>
+						</div>
+
+						<div class="col col-xs-6">
+							<div class="item"></div>
+						</div>
+						<div class="col col-xs-6">
+							<div class="item"></div>
+						</div>
+
+						<div class="col col-xs-7">
+							<div class="item"></div>
+						</div>
+						<div class="col col-xs-5">
+							<div class="item"></div>
+						</div>
+
+						<div class="col col-xs-8">
+							<div class="item"></div>
+						</div>
+						<div class="col col-xs-4">
+							<div class="item"></div>
+						</div>
+
+						<div class="col col-xs-9">
+							<div class="item"></div>
+						</div>
+						<div class="col col-xs-3">
+							<div class="item"></div>
+						</div>
+
+						<div class="col col-xs-10">
+							<div class="item"></div>
+						</div>
+						<div class="col col-xs-2">
+							<div class="item"></div>
+						</div>
+
+						<div class="col col-xs-11">
+							<div class="item"></div>
+						</div>
+						<div class="col col-xs-1">
+							<div class="item"></div>
+						</div>
+
+						<div class="col col-xs-12">
+							<div class="item"></div>
+						</div>
+
+					</div>
+				</section>
+
+				<hr>
+
+				<section id="column-offsets-demo">
+					<h2>Column Offsets Demo</h2>
+
+					<div class="row">
+						<div class="col col-xs-12">
+							<div class="item"></div>
+						</div>
+
+						<div class="col col-xs-11 off-xs-1">
+							<div class="item"></div>
+						</div>
+
+						<div class="col col-xs-10 off-xs-2">
+							<div class="item"></div>
+						</div>
+
+						<div class="col col-xs-9 off-xs-3">
+							<div class="item"></div>
+						</div>
+
+						<div class="col col-xs-8 off-xs-4">
+							<div class="item"></div>
+						</div>
+
+						<div class="col col-xs-7 off-xs-5">
+							<div class="item"></div>
+						</div>
+
+						<div class="col col-xs-6 off-xs-6">
+							<div class="item"></div>
+						</div>
+
+						<div class="col col-xs-5 off-xs-7">
+							<div class="item"></div>
+						</div>
+
+						<div class="col col-xs-4 off-xs-8">
+							<div class="item"></div>
+						</div>
+
+						<div class="col col-xs-3 off-xs-9">
+							<div class="item"></div>
+						</div>
+
+						<div class="col col-xs-2 off-xs-10">
+							<div class="item"></div>
+						</div>
+
+						<div class="col col-xs-1 off-xs-11">
+							<div class="item"></div>
+						</div>
+
+					</div>
+				</section>
+
+				<hr>
+
+				<section id="responsivity-by-combining-namespaces-demo">
+
+					<h2>Responsivity By Combining Namespaces Demo</h2>
+					<p>Drag browser around to test responsive breakpoints.</p>
+
+					<div class="row">
+
+						<div class="col col-xs-6 col col-sm-4 col-md-3 col-lg-1">
+							<div class="item"></div>
+						</div>
+						<div class="col col-xs-6 col col-sm-4 col-md-3 col-lg-1">
+							<div class="item"></div>
+						</div>
+						<div class="col col-xs-6 col col-sm-4 col-md-3 col-lg-1">
+							<div class="item"></div>
+						</div>
+						<div class="col col-xs-6 col col-sm-4 col-md-3 col-lg-1">
+							<div class="item"></div>
+						</div>
+						<div class="col col-xs-6 col col-sm-4 col-md-3 col-lg-1">
+							<div class="item"></div>
+						</div>
+						<div class="col col-xs-6 col col-sm-4 col-md-3 col-lg-1">
+							<div class="item"></div>
+						</div>
+						<div class="col col-xs-6 col col-sm-4 col-md-3 col-lg-1">
+							<div class="item"></div>
+						</div>
+						<div class="col col-xs-6 col col-sm-4 col-md-3 col-lg-1">
+							<div class="item"></div>
+						</div>
+						<div class="col col-xs-6 col col-sm-4 col-md-3 col-lg-1">
+							<div class="item"></div>
+						</div>
+						<div class="col col-xs-6 col col-sm-4 col-md-3 col-lg-1">
+							<div class="item"></div>
+						</div>
+						<div class="col col-xs-6 col col-sm-4 col-md-3 col-lg-1">
+							<div class="item"></div>
+						</div>
+						<div class="col col-xs-6 col col-sm-4 col-md-3 col-lg-1">
+							<div class="item"></div>
+						</div>
+						<div class="col col-xs-6 col col-sm-4 col-md-3 col-lg-1">
+							<div class="item"></div>
+						</div>
+						<div class="col col-xs-6 col col-sm-4 col-md-3 col-lg-1">
+							<div class="item"></div>
+						</div>
+						<div class="col col-xs-6 col col-sm-4 col-md-3 col-lg-1">
+							<div class="item"></div>
+						</div>
+						<div class="col col-xs-6 col col-sm-4 col-md-3 col-lg-1">
+							<div class="item"></div>
+						</div>
+						<div class="col col-xs-6 col col-sm-4 col-md-3 col-lg-1">
+							<div class="item"></div>
+						</div>
+						<div class="col col-xs-6 col col-sm-4 col-md-3 col-lg-1">
+							<div class="item"></div>
+						</div>
+						<div class="col col-xs-6 col col-sm-4 col-md-3 col-lg-1">
+							<div class="item"></div>
+						</div>
+						<div class="col col-xs-6 col col-sm-4 col-md-3 col-lg-1">
+							<div class="item"></div>
+						</div>
+						<div class="col col-xs-6 col col-sm-4 col-md-3 col-lg-1">
+							<div class="item"></div>
+						</div>
+						<div class="col col-xs-6 col col-sm-4 col-md-3 col-lg-1">
+							<div class="item"></div>
+						</div>
+						<div class="col col-xs-6 col col-sm-4 col-md-3 col-lg-1">
+							<div class="item"></div>
+						</div>
+						<div class="col col-xs-6 col col-sm-4 col-md-3 col-lg-1">
+							<div class="item"></div>
+						</div>
+						<div class="col col-xs-6 col col-sm-4 col-md-3 col-lg-1">
+							<div class="item"></div>
+						</div>
+						<div class="col col-xs-6 col col-sm-4 col-md-3 col-lg-1">
+							<div class="item"></div>
+						</div>
+						<div class="col col-xs-6 col col-sm-4 col-md-3 col-lg-1">
+							<div class="item"></div>
+						</div>
+						<div class="col col-xs-6 col col-sm-4 col-md-3 col-lg-1">
+							<div class="item"></div>
+						</div>
+						<div class="col col-xs-6 col col-sm-4 col-md-3 col-lg-1">
+							<div class="item"></div>
+						</div>
+						<div class="col col-xs-6 col col-sm-4 col-md-3 col-lg-1">
+							<div class="item"></div>
+						</div>
+						<div class="col col-xs-6 col col-sm-4 col-md-3 col-lg-1">
+							<div class="item"></div>
+						</div>
+						<div class="col col-xs-6 col col-sm-4 col-md-3 col-lg-1">
+							<div class="item"></div>
+						</div>
+						<div class="col col-xs-6 col col-sm-4 col-md-3 col-lg-1">
+							<div class="item"></div>
+						</div>
+						<div class="col col-xs-6 col col-sm-4 col-md-3 col-lg-1">
+							<div class="item"></div>
+						</div>
+						<div class="col col-xs-6 col col-sm-4 col-md-3 col-lg-1">
+							<div class="item"></div>
+						</div>
+						<div class="col col-xs-6 col col-sm-4 col-md-3 col-lg-1">
+							<div class="item"></div>
+						</div>
+					</div>
+				</section>
+
+				<hr />
+
+				<section id="intelligent-columns">
+
+					<h2>Intelligent Columns</h2>
+
+					<p>Let the flex columns take up all the required space.</p>
+
+					<div class="row">
+
+						<div class="col col-xs">
+							<div class="item">col-xs (smart)</div>
+						</div>
+						<div class="col col-xs-6">
+							<div class="item">col-xs-6 (fixed)</div>
+						</div>
+						<div class="col col-xs">
+							<div class="item">col-xs (smart)</div>
+						</div>
+
+					</div>
+				</section>
+
+				<hr />
+
+				<section id="even-heights">
+
+					<h2>Even Heights</h2>
+
+					<p>Flex columns will have even heights - neat!</p>
+
+					<div class="row">
+
+						<div class="col col-xs-6 bg--blue flex-center-v text-center">
+							<h3>Super columns</h3>
+							<p>Columns with flex have even heights!</p>
+						</div>
+						<div class="col col-xs-6 bg--red flex-center-v text-center" style="height: 300px;">
+							<p>I am <code>height: 300px;</code> </p>
+							<small>(and my flex neighbor should be too!).</small>
+						</div>
+					</div>
+
+					<p>Psst! With flexbox, you can easily vertically center content! just add a class:</p>
+					<pre>.flex-center-v {<br />  @include justify-content(center);<br />}</pre>
+
+				</section>
+
+				<hr />
+
+				<section id="nesting">
+
+					<h2>Nesting</h2>
+
+					<p>Reflex.gs supports grid nesting.</p>
+
+					<div class="row row--space">
+						<div class="col col-xs-6 bg--blue flex-center-v text-center">
+							<h3>Awesome!</h3>
+						</div>
+
+						<div class="col col-xs-6 bg--red">
+							<div class="container">
+								<div class="row">
+									<div class="col col-xs-12 col-sm-6 col-md-4 col-lg-3">
+										<div class="item"></div>
+									</div>
+									<div class="col col-xs-12 col-sm-6 col-md-4 col-lg-3">
+										<div class="item"></div>
+									</div>
+									<div class="col col-xs-12 col-sm-6 col-md-4 col-lg-3">
+										<div class="item"></div>
+									</div>
+									<div class="col col-xs-12 col-sm-6 col-md-4 col-lg-3">
+										<div class="item"></div>
+									</div>
+									<div class="col col-xs-12 col-sm-6 col-md-4 col-lg-3">
+										<div class="item"></div>
+									</div>
+									<div class="col col-xs-12 col-sm-6 col-md-4 col-lg-3">
+										<div class="item"></div>
+									</div>
+									<div class="col col-xs-12 col-sm-6 col-md-4 col-lg-3">
+										<div class="item"></div>
+									</div>
+									<div class="col col-xs-12 col-sm-6 col-md-4 col-lg-3">
+										<div class="item"></div>
+									</div>
+									<div class="col col-xs-12 col-sm-6 col-md-4 col-lg-3">
+										<div class="item"></div>
+									</div>
+									<div class="col col-xs-12 col-sm-6 col-md-4 col-lg-3">
+										<div class="item"></div>
+									</div>
+									<div class="col col-xs-12 col-sm-6 col-md-4 col-lg-3">
+										<div class="item"></div>
+									</div>
+									<div class="col col-xs-12 col-sm-6 col-md-4 col-lg-3">
+										<div class="item"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</section>
+
+				<hr>
+
+				<section id="questions" class="row">
+					<div class="col col-xs-12">
+						<h2>Questions</h2>
+						<p>You can always <a href="https://github.com/loup-brun/reflex.gs/issues">file an issue</a> on the github repo.</p>
+					</div>
+
+				</section>
+
+			</main>
+		</div>
+	</body>
+</html>

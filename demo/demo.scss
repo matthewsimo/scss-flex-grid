@@ -1,0 +1,149 @@
+@import '../src/main';
+
+$spacing: 16px;
+
+*, *:before, *:after {
+	@include box-sizing(border-box);
+}
+
+aside, figure, figcaption, footer, header, main, section { display: block; }
+
+body { 
+	background: GhostWhite; 
+	color: DarkSlateBlue;
+	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+	font-size: 100%;
+	font-weight: 300;
+	line-height: 1.4;
+}
+
+.rflx-logo {
+	@extend .flex-center-v;
+	padding: $spacing;
+	background-color: cornflowerblue;
+	color: floralwhite;
+	border-radius: 3px;
+	text-align: center;
+	
+	h1 { margin: 0; }
+}
+
+a {
+	color: cornflowerblue;
+	transition: color 0.2s ease-in-out;
+
+	&:hover {
+		color: tomato;
+	}
+}
+
+h1, h2, h3, h4, h5, h6 {
+	margin: 0 0 .5em;	
+}
+
+p, ul {
+	margin: $spacing 0;
+}
+
+li {
+	line-height: 1.5;
+	margin: .2em;
+}
+
+small {
+	line-height: 1.5;
+}
+
+hr {
+	border: none;
+	border-top: 1px solid gainsboro;
+	height: 1px;
+	margin: $spacing 0;
+}
+
+pre, code {
+	background: floralwhite;
+	border: 1px solid gainsboro;
+	border-radius: 2px;
+	padding: 2px 3px;
+}
+pre {
+	word-wrap: break-word;
+	white-space: pre-wrap;
+	text-align: left;
+	padding: 5px;
+}
+
+.text-center { text-align: center; }
+
+.item {
+	background-color: CornflowerBlue;
+	border-radius: 2px;
+	display: block;
+	padding: $spacing 2px;
+	min-height: $spacing * 2; 
+	margin-bottom: $spacing;
+	width: 100%;
+}
+
+.bg--light {
+	background-color: whitesmoke;
+}
+
+.bg--blue {
+	background-color: cornflowerblue;
+}
+
+.bg--blue-light {
+	background-color: darkslateblue;
+	color: cornflowerblue;
+}
+
+.bg--red {
+	background-color: tomato;
+}
+
+.container {
+	@include horizontal-margin(auto);
+	@include horizontal-padding($spacing);
+	max-width: 1000px;
+	// include explicit 100% width, otherwise inner flex items don't
+	// automatically take up all horizontal space
+	width: 100%;
+}
+
+.row--space {
+	> .col {
+		@include vertical-padding($spacing);
+	}
+}
+
+.header {
+	margin-bottom: $spacing * 2;
+}
+
+.flex-center-v {
+	@include justify-content(center);
+}
+
+.flex-stretch {
+	@include align-items(stretch);
+}
+
+#wrapper {
+	@include vertical-margin($spacing * 3);
+}
+
+#sidebar {
+	padding-left: $spacing;
+	border-left: 1px solid gainsboro;
+	
+	// No flexbox
+	float: right;
+
+	// W/ flexbox
+	-webkit-box-ordinal-group: 3;
+	-webkit-order: 2;
+	-ms-flex-order: 2;
+	order: 2;
+}
