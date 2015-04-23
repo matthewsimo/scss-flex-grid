@@ -1,10 +1,10 @@
 scss-flex-grid
 ==============
 
-12 column grid using flex box &amp; scss
+grid using flex box &amp; scss
+Version: `0.2.0`
 
-
-Super simple, straight forward 12 column grid implementation. Check out the [demo](http://matthewsimo.github.io/scss-flex-grid/).
+Super simple, straight forward flex grid implementation. Check out the [demo](http://matthewsimo.github.io/scss-flex-grid/).
 
 
 ### Features:
@@ -12,6 +12,7 @@ Super simple, straight forward 12 column grid implementation. Check out the [dem
 - Responsive, mobile first approach
 - Define specific colum size or use a flex column (a column that grows to fill space)
 - Define offset to push column a specific number of columns.
+- Set your own number of columns!
 
 ### Usage:
 
@@ -19,24 +20,34 @@ Just `@import` the `_flexgrid.scss` file as a partial or rename (`_flexgrid.scss
 
 Use the generated classes to build your layout. I prefer to keep my markup clean and `@extend` the grid classes onto my elements so I don't have to muck around in html for style edits but whatever floats your boat.
 
+### Variables:
+
+- `$fg-columns`: The number of columns you wnat your grid to be, defaults to 12
+- `$fg-gutter`: The gutter width used for each column, defaults to 0.5rem;
+- `$fg-breakpoints`: The Flex Grid breakpoint object, binds grid namespaces to media queries. Read more about namespaces in the next section. Defaults to `((xs),(sm,768),(md,992px),(lg,1200px))`.
+
 ### Reference:
 
 - `.row`: Flex box container, use this to wrap columns.
 - `.col-(namespace)`: This creates a column that will grow/shrink depending on available space in the defined namespace.
-- `.col-(namespace)-(number)`: This creates a column that span the specific number of columns in the defined namespace. Valid numbers are 1-12.
-- `.off-(namespace)-(number)`: This will offset a column by a specific number of columns in the defined namespace. Valid numbers are 1-11.
+- `.col-(namespace)-(number)`: This creates a column that span the specific number of columns in the defined namespace. Default valid numbers are 1-12.
+- `.off-(namespace)-(number)`: This will offset a column by a specific number of columns in the defined namespace. Default valid numbers are 1-11.
 
 Valid namespaces are `xs`, `sm`, `md`, `lg`. The `xs` namespace is default and uses no media queries.
 
 ### Coming Up:
 
-- ~~Plan on doing a proper demo. Stay tuned.~~ [Demo here](http://matthewsimo.github.io/scss-flex-grid/)
-- ~~I want to abstract out the namespaces into proper variables so that people can easily create whatever breakpoints they might need.~~ Namespace overriding possible now, huzzah!
-- Dunno, considering ideas.
+- Dunno, considering ideas.. But they _must_ adhere to the super simple approach.
 
 ### Notes:
 
 - Heavy use of sometimes not often used Sass @ directives, be sure and consult the [Sass docs](http://sass-lang.com/documentation/file.SASS_REFERENCE.html) if something looks foreign.
 - This is for personal use, if you like and want to use it, great! But I want to keep it simple so if you have an idea feel free to add an issue but don't be upset if I don't accept a pull request. :heart: (That's what forks are for!)
-- This doesn't account for any browser prefixes, be sure and use [Autoprefixer](https://github.com/postcss/autoprefixer).
+- This purposefully doesn't account for any browser prefixes, be sure and use [Autoprefixer](https://github.com/postcss/autoprefixer).
 
+### Contributing:
+
+- Report bugs by opening a new issue
+- Have an idea? Open an issue and we can discuss it.
+- If you want to contribute some code, that's great! Open an issue for discussion first. 
+- The main goal for this project is be super simple. The _only_ requirement for users for this project will be sass, that won't change. No crazy build steps or unnecessary fluff, thanks.
