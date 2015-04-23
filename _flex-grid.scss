@@ -1,11 +1,23 @@
 
 /**
- * 12 Column Flex Grid
+ * Flex Grid
  * 
- * Simple 12 column grid built with flex box and sass.
+ * Simple grid built with flex box and sass.
  *
  * Matthew Simo - matthew.a.simo@gmail.com
  */
+
+/**
+ * Grid setup
+ *
+ * The grid will calculate dimensions based on these two variables
+ * $fg-columns will inform the grid loops how many columns there should be.
+ * $fg-gutter will inform the grid loops how big eac column's gutters should be.
+ */
+$fg-columns: 12 !default;
+$fg-gutter: 0.5rem !default;
+
+
 
 /**
  * Break point namespace object
@@ -13,7 +25,7 @@
  * Set the default namespace object with these defaults with the 
  * understanding that you can pass in whatever you might require for your site.
  *
- * $bp-namespace-obj is a Sass list with nested lists inside. Each sub list defines two things. 
+ * $fg-breakpoints is a Sass list with nested lists inside. Each sub list defines two things. 
  * 1. The namespace for that breakpoint. (Required) (i.e. xs, sm, md, lg)
  * 2. The min-width measurement for the breakpoint for that namespace. (i.e. 48em, 62em, 75em)
  *
@@ -23,13 +35,7 @@
  * the grid and applied to global styles.
  *
  */
-
-// Grid setup
-$number-of-columns:			12;
-$gutter-width:					18px;
-
-// Map screen sizes
-$bp-namespace-obj: (
+$fg-breakpoints: (
 	(xs),
 	(sm, 768),
 	(md, 992px),
@@ -38,43 +44,26 @@ $bp-namespace-obj: (
 
 
 /**
- * Column Maths
- */
-
-$half-gutter: 0.5rem;
-$half-gutter-adjustment: -$half-gutter;
-
-/**
- * Run the column percent function programatically
+ * Calculate column size percentage
  */
 @function get-col-percent($column-num) {
 	
-	$column-width: $column-num / $number-of-columns * 100%;
-	
-	@return $column-width;
+	@return $column-num / $fg-columns * 100%;
+
 }
 
-// Useful mixins
-@mixin horizontal-padding($value) {
-	padding-left: $value;
-	padding-right: $value;
+/**
+ * Spacing mixin to create uniform margin/padding
+ */
+@mixin spacing( $value, $type: margin, $orientation: vertical ) {
+	@if $orientation == vertical {
+		#{ $type }-top: $value;
+		#{ $type }-bottom: $value;
+	} @else {
+		#{ $type }-left: $value;
+		#{ $type }-right: $value;
+	}
 }
-
-@mixin vertical-padding($value) {
-	padding-top: $value;
-	padding-bottom: $value;
-}
-
-@mixin horizontal-margin($value) {
-	margin-left: $value;
-	margin-right: $value;
-}
-
-@mixin vertical-margin($value) {
-	margin-top: $value;
-	margin-bottom: $value;
-}
-
 
 /**
  * Row wrapper class, flex box parent.
@@ -84,81 +73,88 @@ $half-gutter-adjustment: -$half-gutter;
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
-	@include horizontal-margin(-$gutter-width / 2);
+	@include spacing( ( -$fg-gutter ), margin, horizontal );
 }
 
 
-@mixin col {
+%col {
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   flex-grow: 0;
   flex-shrink: 0;
-	@include horizontal-padding($gutter-width / 2)
+	@include spacing( ( $fg-gutter ), padding, horizontal );
 }
 
-@mixin col-flex {
-	@include col;
+%col-flex {
+	@extend %col;
   flex-grow: 1;
   flex-basis: 0;
   max-width: 100%;
 }
 
-/**
- * Added extra class to avoid repetition
- * and save file size
- */
-
-.col {
-	@include col;
-}
 
 /**
  * Generate a set of grid column classes using a namespace
  *
  * .col-[namespace] for intelligent column division
- * .col-[namespace]-[number] for a column that covers a specific number of columns (1-12)
- * .off-[namespace]-[number] for pushing a col a specific number of columns (1-11)
+ * .col-[namespace]-[number] for a column that covers a specific number of columns (e.g. 1-12 by default)
+ * .off-[namespace]-[number] for pushing a col a specific number of columns (e.g. 1-11 by default)
  */
 
-@mixin grid($namespace) {
-
+@mixin grid-base( $namespace ) {
 	.col-#{$namespace} {
-		@include col-flex;
+		@extend %col-flex;
 	}
 
-	// Run the loop for as many columns as speficied
-	@for $i from 1 through $number-of-columns {
+	@for $i from 1 through $fg-columns {
 		.col-#{$namespace}-#{$i} {
-			// used .col class instead of including the styles in each column
-			//@include col;
+			@extend %col;
+		}
+	}
+}
+
+@mixin grid-sizes( $namespace ) {
+
+	// Run the loop for as many columns as speficied
+	@for $i from 1 through $fg-columns {
+		.col-#{$namespace}-#{$i} {
 			flex-basis: get-col-percent($i);
 			max-width:  get-col-percent($i);
 		}
 	}
 
-	@for $i from 1 through $number-of-columns {
+	@for $i from 1 through $fg-columns {
 		
 		// Don't include the .off class for the last column
-		@if ( $i != $number-of-columns ) {	
-		.off-#{$namespace}-#{$i} {
-			margin-left: get-col-percent($i);
+		@if ( $i != $fg-columns ) {	
+			.off-#{$namespace}-#{$i} {
+				margin-left: get-col-percent($i);
+			}
 		}
-		}
+
 	}
 
 }
 
 
 /**
- * Generate the actual grid for each namespace in the $bp-namespace-obj.
+ * Build the grid in two steps, to help minimize file size
+ * Step 1, for each namespace, create the grid-base
+ * Step 2, for each namespace, wrap the col width/offset measurements in their breakpoint media query
  */
-@each $val in $bp-namespace-obj {
+@each $val in $fg-breakpoints {
 
+	$namespace: nth($val, 1);
+	@include grid-base( $namespace );
+
+}
+
+@each $val in $fg-breakpoints {
 	@if length($val) == 1 {
 
 		$namespace: nth($val, 1);
-		@include grid($namespace);
+		@include grid-sizes( $namespace );
 
 	} @else {
 
@@ -166,9 +162,8 @@ $half-gutter-adjustment: -$half-gutter;
 		$size: nth($val, 2);
 
 		@media only screen and (min-width: #{$size}) {
-			@include grid($namespace);
+			@include grid-sizes( $namespace );
 		}
 
 	}
-
 }
