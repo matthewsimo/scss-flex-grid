@@ -3,7 +3,6 @@ scss-flex-grid
 
 grid using flex box &amp; scss
 
-
 Super simple, straight forward flex grid implementation. Check out the [demo](http://matthewsimo.github.io/scss-flex-grid/).
 
 
@@ -30,8 +29,8 @@ Use the generated classes to build your layout. I prefer to keep my markup clean
 
 - `.row`: Flex box container, use this to wrap columns.
 - `.col-(namespace)`: This creates a column that will grow/shrink depending on available space in the defined namespace.
-- `.col-(namespace)-(number)`: This creates a column that span the specific number of columns in the defined namespace. Valid numbers are 1-12.
-- `.off-(namespace)-(number)`: This will offset a column by a specific number of columns in the defined namespace. Valid numbers are 1-11.
+- `.col-(namespace)-(number)`: This creates a column that span the specific number of columns in the defined namespace. Default valid numbers are 1-12.
+- `.off-(namespace)-(number)`: This will offset a column by a specific number of columns in the defined namespace. Default valid numbers are 1-11.
 
 Valid namespaces are `xs`, `sm`, `md`, `lg`. The `xs` namespace is default and uses no media queries.
 
@@ -45,3 +44,9 @@ Valid namespaces are `xs`, `sm`, `md`, `lg`. The `xs` namespace is default and u
 - This is for personal use, if you like and want to use it, great! But I want to keep it simple so if you have an idea feel free to add an issue but don't be upset if I don't accept a pull request. :heart: (That's what forks are for!)
 - This purposefully doesn't account for any browser prefixes, be sure and use [Autoprefixer](https://github.com/postcss/autoprefixer).
 
+### Contributing:
+
+- Report bugs by opening a new issue
+- Have an idea? Open an issue and we can discuss it.
+- If you want to contribute some code, that's great! Open an issue for discussion first. 
+- The main goal for this project is be super simple. The _only_ requirement for users for this project will be sass, that won't change. No crazy build steps or unnecessary fluff, thanks.
