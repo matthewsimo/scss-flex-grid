@@ -21,7 +21,21 @@
 	<div id="main" class="col-xs-12 col-sm-9">
 		<h1>Flex Grid SCSS</h1>
 
-		<p>Super simple, straight forward 12 column grid implementation using flex box & scss. This demo requires <a href="http://caniuse.com/#feat=flexbox">flexbox support</a>.</p>
+		<p>Super simple, straight forward grid implementation using flex box & scss. This demo requires <a href="http://caniuse.com/#feat=flexbox">flexbox support</a>.</p>
+
+		<hr>
+
+		<div class="row">
+			<div class="col-xs-12">
+				<h2>Features</h2>
+				<ul>
+					<li>Responsive, mobile first approach</li>
+					<li>Define specific colum size or use a flex column (a column that grows to fill space)</li>
+					<li>Define offset to push column a specific number of columns.</li>
+					<li>Set your own number of columns!</li>
+				</ul>
+			</div>
+		</div>
 
 		<hr>
 		
@@ -30,6 +44,20 @@
 				<h2>Usage</h2>
 				<p>Just <code>@import</code> the <code>_flexgrid.scss</code> file as a partial or rename <code>_flexgrid.scss</code> -> <code>flexgrid.scss</code> if you'd prefer it to be compiled independently. <a href="https://github.com/matthewsimo/scss-flex-grid/archive/master.zip">Download flex grid</a></p>
 				<p>Use the generated classes to build your layout. I prefer to keep my markup clean and <code>@extend</code> the grid classes onto my elements so I don't have to muck around in html for style edits but whatever floats your boat.</p>
+			</div>
+		</div>
+
+		<hr>
+
+		<div class="row">
+
+			<div class="col-xs-12">
+				<h2>Variables</h2>
+				<ul>
+					<li><code>$fg-columns</code>: The number of columns you wnat your grid to be, defaults to 12</li>
+					<li><code>$fg-gutter</code>: The gutter width used for each column, defaults to 0.5rem</li>
+					<li><code>$fg-breakpoints</code>: The Flex Grid breakpoint object, binds grid namespaces to media queries. Read more about namespaces in the next section. Defaults to <code>((xs),(sm,768),(md,992px),(lg,1200px))</code></li>
+				</ul>
 			</div>
 		</div>
 
