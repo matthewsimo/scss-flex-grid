@@ -37,10 +37,10 @@ $fg-gutter: 0.5rem !default;
  *
  */
 $fg-breakpoints: (
-	(xs),
-	(sm, 768),
-	(md, 992px),
-	(lg, 1200px)
+  (xs),
+  (sm, 768),
+  (md, 992px),
+  (lg, 1200px)
 ) !default;
 
 
@@ -48,8 +48,8 @@ $fg-breakpoints: (
  * Calculate column size percentage
  */
 @function get-col-percent($column-num) {
-	
-	@return $column-num / $fg-columns * 100%;
+  
+  @return $column-num / $fg-columns * 100%;
 
 }
 
@@ -57,24 +57,24 @@ $fg-breakpoints: (
  * Spacing mixin to create uniform margin/padding
  */
 @mixin spacing( $value, $type: margin, $orientation: vertical ) {
-	@if $orientation == vertical {
-		#{ $type }-top: $value;
-		#{ $type }-bottom: $value;
-	} @else {
-		#{ $type }-left: $value;
-		#{ $type }-right: $value;
-	}
+  @if $orientation == vertical {
+    #{ $type }-top: $value;
+    #{ $type }-bottom: $value;
+  } @else {
+    #{ $type }-left: $value;
+    #{ $type }-right: $value;
+  }
 }
 
 /**
  * Row wrapper class, flex box parent.
  */
 .row {
-	box-sizing: border-box;
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	@include spacing( ( -$fg-gutter ), margin, horizontal );
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  @include spacing( ( -$fg-gutter ), margin, horizontal );
 }
 
 
@@ -84,11 +84,11 @@ $fg-breakpoints: (
   flex-direction: column;
   flex-grow: 0;
   flex-shrink: 0;
-	@include spacing( ( $fg-gutter ), padding, horizontal );
+  @include spacing( ( $fg-gutter ), padding, horizontal );
 }
 
 %col-flex {
-	@extend %col;
+  @extend %col;
   flex-grow: 1;
   flex-basis: 0;
   max-width: 100%;
@@ -104,37 +104,37 @@ $fg-breakpoints: (
  */
 
 @mixin grid-base( $namespace ) {
-	.col-#{$namespace} {
-		@extend %col-flex;
-	}
+  .col-#{$namespace} {
+    @extend %col-flex;
+  }
 
-	@for $i from 1 through $fg-columns {
-		.col-#{$namespace}-#{$i} {
-			@extend %col;
-		}
-	}
+  @for $i from 1 through $fg-columns {
+    .col-#{$namespace}-#{$i} {
+      @extend %col;
+    }
+  }
 }
 
 @mixin grid-sizes( $namespace ) {
 
-	// Run the loop for as many columns as speficied
-	@for $i from 1 through $fg-columns {
-		.col-#{$namespace}-#{$i} {
-			flex-basis: get-col-percent($i);
-			max-width:  get-col-percent($i);
-		}
-	}
+  // Run the loop for as many columns as speficied
+  @for $i from 1 through $fg-columns {
+    .col-#{$namespace}-#{$i} {
+      flex-basis: get-col-percent($i);
+      max-width:  get-col-percent($i);
+    }
+  }
 
-	@for $i from 1 through $fg-columns {
-		
-		// Don't include the .off class for the last column
-		@if ( $i != $fg-columns ) {	
-			.off-#{$namespace}-#{$i} {
-				margin-left: get-col-percent($i);
-			}
-		}
+  @for $i from 1 through $fg-columns {
+    
+    // Don't include the .off class for the last column
+    @if ( $i != $fg-columns ) { 
+      .off-#{$namespace}-#{$i} {
+        margin-left: get-col-percent($i);
+      }
+    }
 
-	}
+  }
 
 }
 
@@ -146,25 +146,24 @@ $fg-breakpoints: (
  */
 @each $val in $fg-breakpoints {
 
-	$namespace: nth($val, 1);
-	@include grid-base( $namespace );
+  $namespace: nth($val, 1);
+  @include grid-base( $namespace );
 
 }
 
 @each $val in $fg-breakpoints {
-	@if length($val) == 1 {
+  @if length($val) == 1 {
 
-		$namespace: nth($val, 1);
-		@include grid-sizes( $namespace );
+    $namespace: nth($val, 1);
+    @include grid-sizes( $namespace );
 
-	} @else {
+  } @else {
 
-		$namespace: nth($val, 1);
-		$size: nth($val, 2);
+    $namespace: nth($val, 1);
+    $size: nth($val, 2);
 
-		@media only screen and (min-width: #{$size}) {
-			@include grid-sizes( $namespace );
-		}
-
-	}
+    @media only screen and (min-width: #{$size}) {
+      @include grid-sizes( $namespace );
+    }
+  }
 }
