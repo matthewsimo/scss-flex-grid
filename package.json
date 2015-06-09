@@ -1,0 +1,17 @@
+{
+  "name": "scss-flex-grid",
+  "version": "0.3.0",
+  "description": "Grid using flex box & scss http://matthewsimo.github.io/scss-flex-grid/",
+  "author": "Matthew Simo <matthew.a.simo@gmail.com>",
+  "contributors": [
+    {
+      "name": "Fox Sports Australia (FrontEnd Developers)",
+      "url": "http://www.foxsports.com.au"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@github.com:matthewsimo/scss-flex-grid.git"
+  },
+  "license": "MIT"
+}
