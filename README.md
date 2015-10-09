@@ -16,7 +16,16 @@ Super simple, straight forward flex grid implementation. Check out the [demo](ht
 
 ### Usage:
 
-Just `@import` the `_flexgrid.scss` file as a partial or rename (`_flexgrid.scss -> flexgrid.scss`) if you'd prefer it to be compiled independently.
+##### NPM Method
+
+- `npm install scss-flex-grid`
+- `@import "./node_modules/scss-flex-grid";`
+
+##### Ye Old download/git clone method
+
+- Just `@import` the `_flexgrid.scss` file as a partial or rename (`_flexgrid.scss -> flexgrid.scss`) if you'd prefer it to be compiled independently.
+
+---
 
 Use the generated classes to build your layout. I prefer to keep my markup clean and `@extend` the grid classes onto my elements so I don't have to muck around in html for style edits but whatever floats your boat.
 

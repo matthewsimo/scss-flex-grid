@@ -1,6 +1,6 @@
 {
   "name": "scss-flex-grid",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Grid using flex box & scss - http://matthewsimo.github.io/scss-flex-grid/",
   "author": "Matthew Simo <matthew.a.simo@gmail.com>",
   "contributors": [
