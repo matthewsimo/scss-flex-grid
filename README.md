@@ -60,3 +60,9 @@ Valid namespaces are `xs`, `sm`, `md`, `lg`. The `xs` namespace is default and u
 - Have an idea? Open an issue and we can discuss it.
 - If you want to contribute some code, that's great! Open an issue for discussion first.
 - The main goal for this project is be super simple. The _only_ requirement for users for this project will be sass, that won't change. No crazy build steps or unnecessary fluff, thanks.
+
+
+### Related:
+
+[David Gómez](https://github.com/davegomez) has based his [Unistyle Flex Grid](https://github.com/davegomez/unistyle-flex-grid) off of this project, check it out if you're into that sort of thing. 😀
+
