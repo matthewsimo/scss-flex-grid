@@ -13,6 +13,7 @@ Super simple, straight forward flex grid implementation. Check out the [demo](ht
 - Define specific colum size or use a flex column (a column that grows to fill space)
 - Define offset to push column a specific number of columns.
 - Set your own number of columns!
+- Set your own class names for rows, columns and offsets for nice library compatibilty!
 
 ### Usage:
 
