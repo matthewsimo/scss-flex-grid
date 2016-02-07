@@ -1,0 +1,23 @@
+{
+  "name": "scss-flex-grid-demo",
+  "version": "0.3.2",
+  "description": "Demo for scss-flex-grid",
+  "main": "index.html",
+  "scripts": {
+    "build": "sass --scss -t compressed --sourcemap=none sass/main.scss css/main.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/matthewsimo/scss-flex-grid.git"
+  },
+  "keywords": [
+    "scss-flex-grid",
+    "demo"
+  ],
+  "author": "Matthew Simo <matthew.a.simo@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/matthewsimo/scss-flex-grid/issues"
+  },
+  "homepage": "https://github.com/matthewsimo/scss-flex-grid#readme"
+}
