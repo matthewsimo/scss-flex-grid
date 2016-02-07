@@ -1,8 +1,8 @@
 
 /**
- * Flex Grid - 
- * Version: 0.2.0
- * 
+ * Flex Grid -
+ * Version: 0.3.2
+ *
  * Simple grid built with flex box and sass.
  *
  * Matthew Simo - matthew.a.simo@gmail.com
@@ -11,45 +11,60 @@
 /**
  * Grid setup
  *
- * The grid will calculate dimensions based on these two variables
+ * The grid will calculate dimensions based on these two variables:
  * $fg-columns will inform the grid loops how many columns there should be.
  * $fg-gutter will inform the grid loops how big eac column's gutters should be.
+ *
+ * The grid will name columns, rows, offsets based on these three variables:
+ * $fg-class-row string used for the row class
+ * $fg-class-col string used for the column class
+ * $fg-class-off string used for the offset class
  */
 $fg-columns: 12 !default;
 $fg-gutter: 0.5rem !default;
+
+$fg-class-row: 'row' !default;
+$fg-class-col: 'col' !default;
+$fg-class-off: 'off' !default;
 
 
 
 /**
  * Break point namespace object
  *
- * Set the default namespace object with these defaults with the 
+ * Set the default namespace object with these defaults with the
  * understanding that you can pass in whatever you might require for your site.
  *
- * $fg-breakpoints is a Sass list with nested lists inside. Each sub list defines two things. 
+ * $fg-breakpoints is a Sass list with nested lists inside. Each sub list defines two things.
  * 1. The namespace for that breakpoint. (Required) (i.e. xs, sm, md, lg)
  * 2. The min-width measurement for the breakpoint for that namespace. (i.e. 48em, 62em, 75em)
  *
  * Note: These should be in the proper order (at least till libsass handles map keys properly).
- * 
- * Note: If the measurement is left out then it will be skipped when generating 
+ *
+ * Note: If the measurement is left out then it will be skipped when generating
  * the grid and applied to global styles.
  *
  */
 $fg-breakpoints: (
-	(xs),
-	(sm, 768),
-	(md, 992px),
-	(lg, 1200px)
+  (xs),
+  (sm, 768px),
+  (md, 992px),
+  (lg, 1200px)
 ) !default;
+
+/**
+ * Class Name Defaults
+ *
+ * Define class names for columns, rows and offsets in case compatibility with other
+ * libraries is necessary.
 
 
 /**
  * Calculate column size percentage
  */
 @function get-col-percent($column-num) {
-	
-	@return $column-num / $fg-columns * 100%;
+
+  @return $column-num / $fg-columns * 100%;
 
 }
 
@@ -57,38 +72,38 @@ $fg-breakpoints: (
  * Spacing mixin to create uniform margin/padding
  */
 @mixin spacing( $value, $type: margin, $orientation: vertical ) {
-	@if $orientation == vertical {
-		#{ $type }-top: $value;
-		#{ $type }-bottom: $value;
-	} @else {
-		#{ $type }-left: $value;
-		#{ $type }-right: $value;
-	}
+  @if $orientation == vertical {
+    #{ $type }-top: $value;
+    #{ $type }-bottom: $value;
+  } @else {
+    #{ $type }-left: $value;
+    #{ $type }-right: $value;
+  }
 }
 
 /**
  * Row wrapper class, flex box parent.
  */
-.row {
-	box-sizing: border-box;
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	@include spacing( ( -$fg-gutter ), margin, horizontal );
+.#{ $fg-class-row } {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  @include spacing( ( -$fg-gutter ), margin, horizontal );
 }
 
 
-%col {
+%#{ $fg-class-col } {
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   flex-grow: 0;
   flex-shrink: 0;
-	@include spacing( ( $fg-gutter ), padding, horizontal );
+  @include spacing( ( $fg-gutter ), padding, horizontal );
 }
 
-%col-flex {
-	@extend %col;
+%#{ $fg-class-col }-flex {
+  @extend %#{ $fg-class-col };
   flex-grow: 1;
   flex-basis: 0;
   max-width: 100%;
@@ -98,43 +113,43 @@ $fg-breakpoints: (
 /**
  * Generate a set of grid column classes using a namespace
  *
- * .col-[namespace] for intelligent column division
- * .col-[namespace]-[number] for a column that covers a specific number of columns (e.g. 1-12 by default)
- * .off-[namespace]-[number] for pushing a col a specific number of columns (e.g. 1-11 by default)
+ * .#{ $fg-class-col }-[namespace] for intelligent column division
+ * .#{ $fg-class-col }-[namespace]-[number] for a column that covers a specific number of columns (e.g. 1-12 by default)
+ * .#{ $fg-class-off }-[namespace]-[number] for pushing a col a specific number of columns (e.g. 1-11 by default)
  */
 
 @mixin grid-base( $namespace ) {
-	.col-#{$namespace} {
-		@extend %col-flex;
-	}
+  .#{ $fg-class-col }-#{$namespace} {
+    @extend %#{ $fg-class-col }-flex;
+  }
 
-	@for $i from 1 through $fg-columns {
-		.col-#{$namespace}-#{$i} {
-			@extend %col;
-		}
-	}
+  @for $i from 1 through $fg-columns {
+    .#{ $fg-class-col }-#{$namespace}-#{$i} {
+      @extend %#{ $fg-class-col };
+    }
+  }
 }
 
 @mixin grid-sizes( $namespace ) {
 
-	// Run the loop for as many columns as speficied
-	@for $i from 1 through $fg-columns {
-		.col-#{$namespace}-#{$i} {
-			flex-basis: get-col-percent($i);
-			max-width:  get-col-percent($i);
-		}
-	}
+  // Run the loop for as many columns as speficied
+  @for $i from 1 through $fg-columns {
+    .#{ $fg-class-col }-#{$namespace}-#{$i} {
+      flex-basis: get-col-percent($i);
+      max-width:  get-col-percent($i);
+    }
+  }
 
-	@for $i from 1 through $fg-columns {
-		
-		// Don't include the .off class for the last column
-		@if ( $i != $fg-columns ) {	
-			.off-#{$namespace}-#{$i} {
-				margin-left: get-col-percent($i);
-			}
-		}
+  @for $i from 1 through $fg-columns {
 
-	}
+    // Don't include the .off class for the last column
+    @if ( $i != $fg-columns ) {
+      .#{ $fg-class-off }-#{$namespace}-#{$i} {
+        margin-left: get-col-percent($i);
+      }
+    }
+
+  }
 
 }
 
@@ -146,25 +161,24 @@ $fg-breakpoints: (
  */
 @each $val in $fg-breakpoints {
 
-	$namespace: nth($val, 1);
-	@include grid-base( $namespace );
+  $namespace: nth($val, 1);
+  @include grid-base( $namespace );
 
 }
 
 @each $val in $fg-breakpoints {
-	@if length($val) == 1 {
+  @if length($val) == 1 {
 
-		$namespace: nth($val, 1);
-		@include grid-sizes( $namespace );
+    $namespace: nth($val, 1);
+    @include grid-sizes( $namespace );
 
-	} @else {
+  } @else {
 
-		$namespace: nth($val, 1);
-		$size: nth($val, 2);
+    $namespace: nth($val, 1);
+    $size: nth($val, 2);
 
-		@media only screen and (min-width: #{$size}) {
-			@include grid-sizes( $namespace );
-		}
-
-	}
+    @media only screen and (min-width: #{$size}) {
+      @include grid-sizes( $namespace );
+    }
+  }
 }
