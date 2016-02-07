@@ -10,7 +10,7 @@
 
 <div id="wrapper">
 
-	<div id="sidebar" class="col-xs-12 col-sm-3">
+	<div id="sidebar" class="col-xs-12 col-lg-3">
 		<h4>By <a href="http://matthewsimo.com">Matthew Simo</a></h4>
 		<h5><a href="http://github.com/matthewsimo/scss-flex-grid">Project on GitHub</a></h5>
 		<small><a href="https://twitter.com/matthewsimo">@matthewsimo</a></small>
@@ -18,7 +18,7 @@
 		<small><a href="https://github.com/matthewsimo/scss-flex-grid/archive/master.zip">Download</a></small>
 	</div>
 
-	<div id="main" class="col-xs-12 col-sm-9">
+	<div id="main" class="col-xs-12 col-lg-9">
 		<h1>Flex Grid SCSS</h1>
 
 		<p>Super simple, straight forward grid implementation using flex box & scss. This demo requires <a href="http://caniuse.com/#feat=flexbox">flexbox support</a>.</p>
@@ -33,6 +33,7 @@
 					<li>Define specific colum size or use a flex column (a column that grows to fill space)</li>
 					<li>Define offset to push column a specific number of columns.</li>
 					<li>Set your own number of columns!</li>
+					<li>Set your own class names for rows, columns and offsets for nice library compatibilty!</li>
 				</ul>
 			</div>
 		</div>
@@ -57,6 +58,9 @@
 					<li><code>$fg-columns</code>: The number of columns you wnat your grid to be, defaults to 12</li>
 					<li><code>$fg-gutter</code>: The gutter width used for each column, defaults to 0.5rem</li>
 					<li><code>$fg-breakpoints</code>: The Flex Grid breakpoint object, binds grid namespaces to media queries. Read more about namespaces in the next section. Defaults to <code>((xs),(sm,768),(md,992px),(lg,1200px))</code></li>
+					<li><code>$fg-class-row</code>: The class to use for rows, defaults to 'row'</li>
+					<li><code>$fg-class-col</code>: The class to use for columns, defaults to 'col'</li>
+					<li><code>$fg-class-off</code>: The class to use for offsets, defaults to 'off'</li>
 				</ul>
 			</div>
 		</div>
@@ -68,11 +72,12 @@
 			<div class="col-xs-12">
 				<h2>Class Reference</h2>
 				<ul>
-					<li><code>.row</code>: Flex box container, use this to wrap columns.</li>
-					<li><code>.col-(namespace)</code>: This creates a column that will grow/shrink depending on available space in the defined namespace.</li>
-					<li><code>.col-(namespace)-(number)</code>: This creates a column that span the specific number of columns in the defined namespace. Valid numbers are 1-12.</li>
-					<li><code>.off-(namespace)-(number)</code>: This will offset a column by a specific number of columns in the defined namespace. Valid numbers are 1-11.</li>
+					<li><code>.($fg-class-row)</code>: Flex box container, use this to wrap columns.</li>
+					<li><code>.($fg-class-col)-(namespace)</code>: This creates a column that will grow/shrink depending on available space in the defined namespace.</li>
+					<li><code>.($fg-class-col)-(namespace)-(number)</code>: This creates a column that span the specific number of columns in the defined namespace. Valid numbers are 1-12.</li>
+					<li><code>.($fg-class-off)-(namespace)-(number)</code>: This will offset a column by a specific number of columns in the defined namespace. Valid numbers are 1-11.</li>
 				</ul>
+				<p>See docs about the row, col and offset class name variables, default is 'row', 'col', 'off'.</p>
 				<p>Default valid namespaces are <code>xs</code>, <code>sm</code>, <code>md</code>, <code>lg</code>. The <code>xs</code> namespace is default and uses no media queries. Learn how to <a href="#overriding-namespaces">override namespaces</a>.</p>
 			</div>
 		</div>
