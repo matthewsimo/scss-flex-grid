@@ -2,7 +2,7 @@ scss-flex-grid
 ==============
 
 grid using flex box &amp; scss
-Version: `0.2.1`
+Version: `0.3.2`
 
 Super simple, straight forward flex grid implementation. Check out the [demo](http://matthewsimo.github.io/scss-flex-grid/).
 
@@ -32,15 +32,21 @@ Use the generated classes to build your layout. I prefer to keep my markup clean
 ### Variables:
 
 - `$fg-columns`: The number of columns you wnat your grid to be, defaults to 12
-- `$fg-gutter`: The gutter width used for each column, defaults to 0.5rem;
+- `$fg-gutter`: The gutter width used for each column, defaults to 0.5rem
 - `$fg-breakpoints`: The Flex Grid breakpoint object, binds grid namespaces to media queries. Read more about namespaces in the next section. Defaults to `((xs),(sm,768),(md,992px),(lg,1200px))`.
+- `$fg-class-row`: The class to use for rows, defaults to 'row'
+- `$fg-class-col`: The class to use for columns, defaults to 'col'
+- `$fg-class-off`: The class to use for offsets, defaults to 'off'
+
 
 ### Reference:
 
-- `.row`: Flex box container, use this to wrap columns.
-- `.col-(namespace)`: This creates a column that will grow/shrink depending on available space in the defined namespace.
-- `.col-(namespace)-(number)`: This creates a column that span the specific number of columns in the defined namespace. Default valid numbers are 1-12.
-- `.off-(namespace)-(number)`: This will offset a column by a specific number of columns in the defined namespace. Default valid numbers are 1-11.
+- `.($fg-class-row)`: Flex box container, use this to wrap columns.
+- `.($fg-class-col)-(namespace)`: This creates a column that will grow/shrink depending on available space in the defined namespace.
+- `.($fg-class-col)-(namespace)-(number)`: This creates a column that span the specific number of columns in the defined namespace. Default valid numbers are 1-12.
+- `.($fg-class-off)-(namespace)-(number)`: This will offset a column by a specific number of columns in the defined namespace. Default valid numbers are 1-11.
+
+See docs about the row, col and offset class name variables, default is 'row', 'col', 'off'.
 
 Valid namespaces are `xs`, `sm`, `md`, `lg`. The `xs` namespace is default and uses no media queries.
 
