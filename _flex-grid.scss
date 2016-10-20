@@ -1,7 +1,7 @@
 
 /**
  * Flex Grid -
- * Version: 0.3.2
+ * Version: 0.3.3
  *
  * Simple grid built with flex box and sass.
  *
@@ -99,6 +99,7 @@ $fg-breakpoints: (
   flex-direction: column;
   flex-grow: 0;
   flex-shrink: 0;
+  min-height: 1px;
   @include spacing( ( $fg-gutter ), padding, horizontal );
 }
 
