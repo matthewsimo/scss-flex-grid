@@ -2,7 +2,7 @@ scss-flex-grid
 ==============
 
 grid using flex box &amp; scss
-Version: `0.3.3`
+Version: `0.3.4`
 
 Super simple, straight forward flex grid implementation. Check out the [demo](http://matthewsimo.github.io/scss-flex-grid/).
 
