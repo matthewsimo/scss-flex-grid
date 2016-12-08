@@ -152,6 +152,10 @@ $fg-breakpoints: (
 
   }
 
+  .#{ $fg-class-off }-#{$namespace}-reset {
+    margin-left: 0;
+  }
+
 }
 
 
