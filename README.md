@@ -2,7 +2,7 @@ scss-flex-grid
 ==============
 
 grid using flex box &amp; scss
-Version: `0.3.4`
+Version: `0.3.5`
 
 Super simple, straight forward flex grid implementation. Check out the [demo](http://matthewsimo.github.io/scss-flex-grid/).
 
@@ -12,6 +12,7 @@ Super simple, straight forward flex grid implementation. Check out the [demo](ht
 - Responsive, mobile first approach
 - Define specific colum size or use a flex column (a column that grows to fill space)
 - Define offset to push column a specific number of columns.
+- Easily resetting offsets by namespace.
 - Set your own number of columns!
 - Set your own class names for rows, columns and offsets for nice library compatibilty!
 
@@ -20,7 +21,8 @@ Super simple, straight forward flex grid implementation. Check out the [demo](ht
 ##### NPM Method
 
 - `npm install scss-flex-grid`
-- `@import "./node_modules/scss-flex-grid";`
+- `@import "../node_modules/scss-flex-grid/flex-grid";`
+
 
 ##### Ye Old download/git clone method
 
@@ -46,6 +48,7 @@ Use the generated classes to build your layout. I prefer to keep my markup clean
 - `.($fg-class-col)-(namespace)`: This creates a column that will grow/shrink depending on available space in the defined namespace.
 - `.($fg-class-col)-(namespace)-(number)`: This creates a column that span the specific number of columns in the defined namespace. Default valid numbers are 1-12.
 - `.($fg-class-off)-(namespace)-(number)`: This will offset a column by a specific number of columns in the defined namespace. Default valid numbers are 1-11.
+- `.($fg-class-off)-(namespace)-reset`: This will reset a column's offset for the given and larger namespaces.
 
 See docs about the row, col and offset class name variables, default is 'row', 'col', 'off'.
 

@@ -1,7 +1,7 @@
 
 /**
  * Flex Grid -
- * Version: 0.3.4
+ * Version: 0.3.5
  *
  * Simple grid built with flex box and sass.
  *
@@ -117,6 +117,7 @@ $fg-breakpoints: (
  * .#{ $fg-class-col }-[namespace] for intelligent column division
  * .#{ $fg-class-col }-[namespace]-[number] for a column that covers a specific number of columns (e.g. 1-12 by default)
  * .#{ $fg-class-off }-[namespace]-[number] for pushing a col a specific number of columns (e.g. 1-11 by default)
+ * .#{ $fg-class-off }-[namespace]-reset for resetting a col's offset for that and larger namespaces
  */
 
 @mixin grid-base( $namespace ) {
@@ -150,6 +151,10 @@ $fg-breakpoints: (
       }
     }
 
+  }
+
+  .#{ $fg-class-off }-#{$namespace}-reset {
+    margin-left: 0;
   }
 
 }
