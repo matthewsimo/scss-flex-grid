@@ -1,6 +1,6 @@
 {
   "name": "scss-flex-grid-demo",
-  "version": "0.3.2",
+  "version": "0.3.5",
   "description": "Demo for scss-flex-grid",
   "main": "index.html",
   "scripts": {
@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/matthewsimo/scss-flex-grid/issues"
   },
-  "homepage": "https://github.com/matthewsimo/scss-flex-grid#readme"
+  "homepage": "https://github.com/matthewsimo/scss-flex-grid#readme",
+  "devDependencies": {
+    "scss-flex-grid": "^0.3.5"
+  }
 }
