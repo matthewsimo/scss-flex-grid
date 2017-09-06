@@ -1,6 +1,9 @@
 scss-flex-grid
 ==============
 
+*If you need a true grid system, I recommend using CSS Grid Layout. It's support is good enough for modern sites and applications. As such, I will no longer be spending any time maintaining this project. ✌️*
+
+
 grid using flex box &amp; scss
 Version: `0.3.5`
 
